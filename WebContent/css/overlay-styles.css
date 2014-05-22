@@ -1,0 +1,289 @@
+.thumbwrapper .highslide {
+	OUTLINE-STYLE: none
+}
+.textwrapper .highslide {
+	TEXT-ALIGN: center; DISPLAY: block; FONT-SIZE: 11pt; TEXT-DECORATION: none
+}
+.highslide {
+	OUTLINE-STYLE: none; 
+}
+.highslide-active-anchor IMG {
+	VISIBILITY: hidden
+}
+.highslide IMG {
+	BORDER-BOTTOM: #e4e4e4 1px solid; BORDER-LEFT: #e4e4e4 1px solid; OUTLINE-STYLE: none; BORDER-TOP: #e4e4e4 1px solid; CURSOR: url(graphics/zoomin.cur), pointer; BORDER-RIGHT: #e4e4e4 1px solid
+}
+.highslide:hover IMG {
+	BORDER-BOTTOM: silver 1px solid; BORDER-LEFT: silver 1px solid; BORDER-TOP: silver 1px solid; BORDER-RIGHT: silver 1px solid
+}
+.highslide-image {
+	BORDER-BOTTOM: white 10px solid; BORDER-LEFT: white 10px solid; BORDER-TOP: white 10px solid; BORDER-RIGHT: white 10px solid
+}
+.highslide-image-blur {
+	
+}
+.highslide-caption {
+	TEXT-ALIGN: justify; PADDING-BOTTOM: 10px; BACKGROUND-COLOR: white; PADDING-LEFT: 10px; PADDING-RIGHT: 10px; DISPLAY: none; BORDER-TOP-STYLE: none; PADDING-TOP: 0px
+}
+.highslide-dimming {
+	POSITION: absolute; WIDTH: 100%; BACKGROUND: black; VISIBILITY: hidden
+}
+.highslide-loading {
+	BACKGROUND-IMAGE: url(graphics/loader.white.gif); BORDER-BOTTOM: black 1px solid; BORDER-LEFT: black 1px solid; PADDING-BOTTOM: 2px; BACKGROUND-COLOR: white; PADDING-LEFT: 22px; PADDING-RIGHT: 2px; DISPLAY: block; BACKGROUND-REPEAT: no-repeat; FONT-FAMILY: sans-serif; BACKGROUND-POSITION: 3px 1px; COLOR: black; FONT-SIZE: 8pt; BORDER-TOP: black 1px solid; FONT-WEIGHT: bold; BORDER-RIGHT: black 1px solid; TEXT-DECORATION: none; PADDING-TOP: 2px
+}
+.control {
+	TEXT-TRANSFORM: uppercase; MARGIN: 0px 0px; DISPLAY: block; FLOAT: right; FONT-SIZE: 9pt; FONT-WEIGHT: bold; TEXT-DECORATION: none
+}
+.control:hover {
+	COLOR: black !important; TEXT-DECORATION: none
+}
+.highslide-move {
+	BACKGROUND: url(images/close.png); transparent scroll repeat 10% 20%; CURSOR: move
+}
+.highslide-resize {
+	CURSOR: nw-resize
+}
+A.highslide-full-expand {
+	MARGIN: 0px 10px 10px 0px; WIDTH: 44px; DISPLAY: block; BACKGROUND: url(graphics/fullexpand.gif) no-repeat; HEIGHT: 44px
+}
+.highslide-overlay {
+	DISPLAY: none
+}
+A.highslide-credits {
+	PADDING-BOTTOM: 2px; PADDING-LEFT: 2px; PADDING-RIGHT: 2px; COLOR: silver; FONT-SIZE: 10px; TEXT-DECORATION: none; PADDING-TOP: 2px
+}
+A.highslide-credits I {
+	PADDING-BOTTOM: 2px; PADDING-LEFT: 2px; PADDING-RIGHT: 2px; COLOR: silver; FONT-SIZE: 10px; TEXT-DECORATION: none; PADDING-TOP: 2px
+}
+A.highslide-credits:hover {
+	BACKGROUND-COLOR: gray; COLOR: white; TEXT-DECORATION: none
+}
+A.highslide-credits:hover I {
+	BACKGROUND-COLOR: gray; COLOR: white; TEXT-DECORATION: none
+}
+.highslide-previous-next {
+	TEXT-ALIGN: center; PADDING-BOTTOM: 5px
+}
+.highslide-previous-next A {
+	PADDING-BOTTOM: 0px; TEXT-TRANSFORM: uppercase; PADDING-LEFT: 20px; PADDING-RIGHT: 20px; COLOR: white; FONT-SIZE: 7pt; FONT-WEIGHT: bold; TEXT-DECORATION: none; PADDING-TOP: 0px
+}
+.highslide-html {
+	BORDER-BOTTOM: white 0px solid; BORDER-LEFT: white 0px solid; BACKGROUND-COLOR: white; BORDER-TOP: white 0px solid; BORDER-RIGHT: white 0px solid
+}
+.highslide-html-blur {
+	BORDER-BOTTOM: silver 1px solid; BORDER-LEFT: silver 1px solid; BORDER-TOP: silver 1px solid; BORDER-RIGHT: silver 1px solid
+}
+.highslide-html-content {
+	POSITION: absolute; DISPLAY: none; margin:0px;
+}
+.highslide-wrapper {
+	BACKGROUND-COLOR: #99cc01; margin:0px;
+}
+.highslide-wrapper .highslide-html-content {
+	PADDING-BOTTOM: 0px; PADDING-LEFT: 0px; WIDTH: 400px; PADDING-RIGHT: 0px; PADDING-TOP: 0px; 
+}
+
+/*99cc01*/
+.highslide-title {
+	background-color: #075BA9 /*99cc01*/;
+	font-family: Arial, Geneva, sans-serif;
+	font-size: 12pt;
+	font-weight: bold;
+	color: #FFF;
+	width: 70%;
+	padding-left: 5px;
+}
+
+.highslide-wrapper .highslide-header DIV {
+	PADDING-BOTTOM: 0px; PADDING-LEFT: 3px;  PADDING-RIGHT: 0px; PADDING-TOP: 10px; margin:-1px;
+	float: left; height: 34px; width: 96%; background-color: #000000;
+}
+.highslide-wrapper .highslide-header UL {
+	TEXT-ALIGN: right; PADDING-BOTTOM: 2px; MARGIN: 0px; PADDING-LEFT: 2px; PADDING-RIGHT: 5px; PADDING-TOP: 3px;
+	background-color: #075BA9 /*99cc01*/;
+	float: right;
+	height: 38px;
+}
+
+.highslide-wrapper .highslide-header UL LI {
+	DISPLAY: inline
+}
+.highslide-wrapper .highslide-header UL LI.highslide-previous {
+	DISPLAY: none
+}
+.highslide-wrapper .highslide-header UL LI.highslide-next {
+	DISPLAY: none
+}
+.highslide-wrapper .highslide-header A {
+	TEXT-TRANSFORM: uppercase; COLOR: gray; FONT-WEIGHT: bold; TEXT-DECORATION: none
+}
+.highslide-wrapper .highslide-close A {
+	TEXT-TRANSFORM: uppercase; COLOR: #F00; FONT-WEIGHT: bold; TEXT-DECORATION: none; font-size: 11px;
+}
+.highslide-wrapper .highslide-header A:hover {
+	COLOR: black
+}
+.highslide-wrapper .highslide-header .highslide-move A {
+	CURSOR: move; font-size: 11px; color: #F00;
+}
+.highslide-wrapper .highslide-footer {
+	HEIGHT: 11px
+}
+.highslide-wrapper .highslide-footer .highslide-resize {
+	POSITION: relative; WIDTH: 11px; BACKGROUND: url(graphics/resize.gif); FLOAT: right; HEIGHT: 11px; TOP: 0.5em; LEFT: 0.5em
+}
+.highslide-wrapper .highslide-body {
+	padding: 0px;
+	margin: 0px;
+}
+
+.highslide-no-border {
+	BACKGROUND-COLOR: gray
+}
+.highslide-no-border .highslide-image {
+	BORDER-BOTTOM: white 1px solid; BORDER-RIGHT-STYLE: none; BORDER-TOP-STYLE: none; BORDER-LEFT-STYLE: none
+}
+.highslide-no-border .highslide-html {
+	BORDER-BOTTOM-STYLE: none; BORDER-RIGHT-STYLE: none; BORDER-TOP-STYLE: none; BORDER-LEFT-STYLE: none
+}
+.highslide-no-border .highslide-caption {
+	BORDER-BOTTOM: white 1px solid; BORDER-RIGHT-STYLE: none; BACKGROUND-COLOR: gray; BORDER-TOP-STYLE: none; COLOR: white; BORDER-LEFT-STYLE: none
+}
+.highslide-no-border .highslide-caption CODE {
+	COLOR: white
+}
+.highslide-white {
+	BACKGROUND-COLOR: white
+}
+.highslide-white .highslide-image {
+	BORDER-BOTTOM: white 5px solid; BORDER-LEFT: white 5px solid; BORDER-TOP: white 5px solid; BORDER-RIGHT: white 5px solid
+}
+.highslide-white .highslide-caption {
+	BACKGROUND-COLOR: white
+}
+.highslide-white .control {
+	COLOR: #666
+}
+.highslide-white .control * {
+	COLOR: #666
+}
+.highslide-white .highslide-html {
+	BORDER-BOTTOM: white 2px solid; BORDER-LEFT: white 2px solid; BORDER-TOP: white 2px solid; BORDER-RIGHT: white 2px solid
+}
+.glossy-dark {
+	BACKGROUND-COLOR: #101010
+}
+.glossy-dark .highslide-image {
+	BORDER-BOTTOM: #202020 2px solid; BORDER-LEFT: black 2px solid; BORDER-TOP: black 2px solid; BORDER-RIGHT: black 2px solid
+}
+.glossy-dark .highslide-caption {
+	PADDING-BOTTOM: 5px; PADDING-LEFT: 0px; PADDING-RIGHT: 0px; BACKGROUND: #101010; PADDING-TOP: 5px
+}
+.glossy-dark DIV {
+	COLOR: silver
+}
+.highslide-narrow-border {
+	BACKGROUND: white
+}
+.highslide-narrow-border .highslide-image {
+	BORDER-BOTTOM: white 2px solid; BORDER-LEFT: white 2px solid; BORDER-TOP: white 2px solid; BORDER-RIGHT: white 2px solid
+}
+.highslide-narrow-border .highslide-caption {
+	BACKGROUND-COLOR: white
+}
+.highslide-black-border {
+	BACKGROUND: white
+}
+.highslide-black-border .highslide-image {
+	BORDER-BOTTOM: #655f2f 2px solid; BORDER-LEFT: #655f2f 2px solid; BORDER-TOP: #655f2f 2px solid; BORDER-RIGHT: #655f2f 2px solid
+}
+.highslide-black-border .highslide-caption {
+	BORDER-BOTTOM: #655f2f 2px solid; BORDER-LEFT: #655f2f 2px solid; BACKGROUND-COLOR: white; COLOR: #333; BORDER-TOP: #655f2f 2px; BORDER-RIGHT: #655f2f 2px solid
+}
+.highslide-blur-example .highslide-image-blur {
+	BORDER-BOTTOM-COLOR: silver; BORDER-TOP-COLOR: silver; BORDER-RIGHT-COLOR: silver; BORDER-LEFT-COLOR: silver
+}
+.highslide-blur-example .highslide-caption-blur {
+	BORDER-BOTTOM-COLOR: silver; BORDER-TOP-COLOR: silver; BORDER-RIGHT-COLOR: silver; BORDER-LEFT-COLOR: silver
+}
+.html-header {
+	BACKGROUND-IMAGE: url(graphics/header-background.gif); PADDING-BOTTOM: 2px; PADDING-LEFT: 2px; PADDING-RIGHT: 2px; HEIGHT: 18px; CURSOR: default; PADDING-TOP: 2px
+}
+.highslide-html-blur #highslide-html-7-header {
+	BACKGROUND-IMAGE: url(graphics/header-background-blur.gif); PADDING-BOTTOM: 2px; PADDING-LEFT: 2px; PADDING-RIGHT: 2px; HEIGHT: 18px; PADDING-TOP: 2px
+}
+.highslide-dimming {
+	BACKGROUND-COLOR: black
+}
+.controlbar {
+	WIDTH: 167px; BACKGROUND: url(graphics/controlbar4.gif); HEIGHT: 34px
+}
+.controlbar A {
+	DISPLAY: block; FLOAT: left; HEIGHT: 27px
+}
+.controlbar A:hover {
+	BACKGROUND-IMAGE: url(graphics/controlbar4-hover.gif)
+}
+.controlbar .previous {
+	WIDTH: 50px
+}
+.controlbar .next {
+	WIDTH: 40px; BACKGROUND-POSITION: -50px 0px
+}
+.controlbar .highslide-move {
+	WIDTH: 40px; BACKGROUND-POSITION: -90px 0px
+}
+.controlbar .close {
+	WIDTH: 36px; BACKGROUND-POSITION: -130px 0px
+}
+.controlbar2 {
+	WIDTH: 210px; BACKGROUND: url(graphics/controlbar2.gif); HEIGHT: 32px; MARGIN-LEFT: 60px
+}
+.controlbar2 A {
+	MARGIN: 0px 0px 0px 5px; WIDTH: 42px; DISPLAY: block; FLOAT: left; HEIGHT: 30px
+}
+.controlbar5 {
+	WIDTH: 83px; BACKGROUND: url(graphics/controlbar5.gif); FLOAT: right; HEIGHT: 18px
+}
+.controlbar5 A {
+	DISPLAY: block; FLOAT: left; HEIGHT: 18px
+}
+.controlbar5 A:hover {
+	BACKGROUND-IMAGE: url(graphics/controlbar5-hover.gif)
+}
+.controlbar5 .previous {
+	WIDTH: 20px
+}
+.controlbar5 .next {
+	WIDTH: 20px; BACKGROUND-POSITION: -20px 0px
+}
+.controlbar5 .highslide-move {
+	WIDTH: 20px; BACKGROUND-POSITION: -40px 0px
+}
+.controlbar5 .close {
+	WIDTH: 20px; BACKGROUND-POSITION: -60px 0px
+}
+.closebutton {
+	POSITION: relative; WIDTH: 30px; BACKGROUND: url(images/close.png); HEIGHT: 30px; TOP: -15px; CURSOR: pointer; LEFT: 15px
+}
+.highslide-display-block {
+	DISPLAY: block
+}
+.highslide-display-none {
+	DISPLAY: none
+}
+.modules-title {
+	COLOR: #04064b
+}
+.class_img {
+	POSITION: relative; FLOAT: left; MARGIN-RIGHT: 10px
+}
+.highslide-close {
+	BACKGROUND: none transparent scroll repeat 0% 0%
+}
+.highslide-close UL LI {
+	BACKGROUND: none transparent scroll repeat 0% 0%
+}
+
+a.hp-links{color: #234D7D;font: normal 11px Verdana, Arial, Helvetica, sans-serif;text-decoration: none;} 
+a.hp-links:hover{color: #000000;text-decoration: underline;} 

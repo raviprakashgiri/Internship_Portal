@@ -1,0 +1,67 @@
+body {
+	background-image: url(images/bgPattern.jpg);
+}
+
+.report_title{
+font-family:arial;
+font-size:16px;
+color:#494949;
+}
+
+.text{
+font-family:arial;
+font-size:12px;
+color:#000000;
+}
+
+.text_grey{
+font-family:arial;
+font-size:12px;
+color:#666666;
+}
+
+.table_head{
+font-family:Arial;
+font-size:12px;
+color:#666666;
+font-weight:normal;
+}
+
+.title{
+font-family:arial;
+font-size:16px;
+color:#0072BC;
+}
+
+.link {
+	font-family: Verdana;
+	font-size: 18px;
+	font-weight: normal;
+	color: #0099CC;
+	text-decoration: none;
+}
+a.link:hover {
+	color: #000000;
+	text-decoration:underline;
+}
+
+.toplink {
+	font-family: Verdana;
+	font-size: 12px;
+	font-weight: normal;
+	color: #FFFFFF;
+	text-decoration: none;
+}
+a.toplink:hover {
+	color: #FFFFFF;
+	text-decoration:underline;
+}
+
+.list{
+background-color:#F7F7F7;
+height::13px;
+width:auto;
+font-family:Verdana;
+font-size:9px;
+color:#000000;
+}

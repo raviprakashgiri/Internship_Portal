@@ -1,0 +1,419 @@
+body {
+	background-color: #FFFFFF;
+}
+
+.report_title{
+font-family:arial;
+font-size:16px;
+color:#494949;
+}
+
+.text{
+font-family:tahoma;
+font-size:14px;
+color:#666666;
+}
+.textsmall{
+font-family:tahoma;
+font-size:12px;
+color:#000000;
+lign-height:10px;
+}
+.textsmallred{
+font-family:tahoma;
+font-size:11px;
+color:#d44937;
+}
+
+.text2{
+font-family:tahoma;
+font-size:15px;
+color:#666666;
+}
+
+.textblack{
+font-family:tahoma;
+font-size:14px;
+color:#000000;
+}
+
+.textwhite{
+font-family:tahoma;
+font-size:14px;
+color:#FFFFFF;
+}
+
+.totaltd{
+font-family:arial;
+font-size:12px;
+color:#000000;
+font-weight:bold;
+border-top:1px solid;
+border-color:#FF6600;
+}
+.totaltext{
+font-family:arial;
+font-size:12px;
+color:#666666;
+font-weight:bold;
+border-top:1px solid;
+border-color:#FF6600;
+}
+
+.totaltext1{
+font-family:arial;
+font-size:12px;
+color:#000000;
+font-weight:bold;
+border-left:0px solid;
+border-color:#FF6600;
+}
+
+.text_border{
+font-family:arial;
+font-size:12px;
+color:#000000;
+background-color:#FFFFFF;
+border-bottom:1px dotted;
+border-color:#CCCCCC;
+}
+.dashboardTable{
+width:96%; 
+border:0; 
+align:center;
+cellpadding:0;
+cellspacing:0;
+border: 1px solid rgb(59, 81, 103);
+}
+.text_grey{
+font-family:arial;
+font-size:12px;
+color:#666666;
+}
+.text_grey1{
+font-family:arial;
+font-size:10px;
+color:#666666;
+}
+.td_text_border{
+font-family:arial;
+font-size:12px;
+color:#666666;
+background-color:#F7F7F7;
+border-bottom:1px dotted;
+border-right:1px dotted;
+border-color:#CCCCCC;
+}
+
+.td_text_border1{
+font-family:arial;
+font-size:12px;
+color:#666666;
+background-color:#F7F7F7;
+border-bottom:1px dotted;
+border-right:1px dotted;
+border-left:1px dotted;
+border-color:#CCCCCC;
+}
+
+
+.td_white_text_border{
+font-family:arial;
+font-size:12px;
+color:#666666;
+background-color:#FFFFFF;
+border-bottom:1px dotted;
+border-right:1px dotted;
+border-color:#CCCCCC;
+}
+
+.td_white_text_border1{
+font-family:arial;
+font-size:12px;
+color:#666666;
+background-color:#FFFFFF;
+border-bottom:1px dotted;
+border-right:1px dotted;
+border-left:1px dotted;
+border-color:#CCCCCC;
+}
+
+.table_head{
+border-bottom:2px solid;
+border-color:#FF6600;
+background-color:#FFFFFF;
+font-family:tahoma;
+font-size:14px;
+color:#666666;
+font-weight:normal;
+}
+
+.tdbgwhite{
+background-color:#FFFFFF;
+font-family:arial;
+font-size:12px;
+color:#000000;
+border-bottom:1px dotted;
+border-color:#999999;
+}
+
+.tdbggreen{
+background-color:#F0F0F0;
+font-family:arial;
+font-size:12px;
+color:#000000;
+border-bottom:1px dotted; 
+border-color:#999999;
+	}
+	
+.title{
+font-family:arial;
+font-size:16px;
+color:#666666;
+}
+
+.link {
+	font-family: Verdana;
+	font-size: 11px;
+	font-weight: normal;
+	color: #d44937;
+	text-decoration: none;
+}
+a.link:hover {
+	color: #000000;
+	text-decoration:underline;
+}
+
+.toplink {
+	font-family: Verdana;
+	font-size: 12px;
+	font-weight: normal;
+	color: #499BDE;
+	text-decoration: none;
+}
+a.toplink:hover {
+	color: #000000;
+	text-decoration:none;
+}
+
+.textbox{
+background-color:#FFFFFF;
+border:1px solid;
+Border-color:#CCCCCC;
+width:Auto;
+height:22px;
+font-famity:Arial;
+font-size:12px;
+color:#000000;
+}
+
+.textbox1{
+background-color:#CCCCCC;
+border:1px solid;
+Border-color:#CCCCCC;
+width:Auto;
+height:22px;
+font-famity:Arial;
+font-size:12px;
+color:#000000;
+} 
+.list{
+background-color:#FFFFFF;
+height::45px;
+width:auto;
+border:1px solid;
+border-color:#CCCCCC;
+font-family:Arial;
+font-size:12px;
+color:#000000;
+}
+
+.footer{
+font-family:verdana;
+font-size:9px;
+color:#000000;
+}
+
+.bigtitlered{
+font-family:verdana;
+font-size:20px;
+color:#BA0839;
+}
+
+.but{
+background-color:#d44937;
+border:1px solid;
+width:auto;
+height:25px;
+font-family:tahoma;
+font-size:12px;
+color:#FFFFFF;
+}
+.but_grey{
+background-color:#FFFFFF;
+border:1px solid;
+border-color:#DADADA;
+border-radiuous:20px;
+width:auto;
+height:35px;
+font-family:tahoma;
+font-size:12px;
+color:#666666;
+}
+
+.but_grey1{
+background-color:#666666;
+border:1px solid;
+border-color:#DADADA;
+border-radiuous:20px;
+width:auto;
+height:35px;
+font-family:tahoma;
+font-size:14px;
+color:#FFFFFF;
+font-weight:normal;
+}
+
+
+.butgrey{
+background-color:#666666;
+border:1px solid;
+width:auto;
+height:25px;
+font-family:tahoma;
+font-size:12px;
+color:#FFFFFF;
+}
+.butgrey1{
+background-color:#666666;
+border:1px solid;
+border-color:#CCCCCC;
+width:auto;
+height:25px;
+font-family:tahoma;
+font-size:12px;
+color:#F7F7F7;
+}
+
+.textarea{
+background-color:#FFFFFF;
+border:1px solid;
+Border-color:#CCCCCC;
+width:Auto;
+font-famity:Arial;
+font-size:12px;
+color:#000000;
+resize:none;
+}
+.textarea1{
+background-color:#FFFFFF;
+border:1px solid;
+Border-color:#CCCCCC;
+width:850px;
+resize:none;
+/*resize:vertical;
+font-famity:Arial;
+font-size:12px;
+color:#000000;
+}
+
+/*accordion*/
+#basic-accordian{
+	border:5px solid #EEE;
+	padding:5px;
+	width:340px;
+	position:absolute;
+	left:50%;
+	top:50%;
+	margin-left:275px;
+	z-index:2;
+	margin-top:-100px;
+}
+
+.accordion_headings{
+	padding:5px;
+	background:#99CC00;
+	color:#FFFFFF;
+	border:1px solid #FFF;
+	cursor:pointer;
+	font-weight:bold;
+}
+
+.accordion_headings:hover{
+	background:#00CCFF;
+}
+
+.accordion_child{
+	padding:15px;
+	background:#EEE;
+}
+
+.header_highlight{
+	background:#00CCFF;
+}
+
+.tab_container *{
+	float:left;
+	width:100px;
+}
+
+/* popup*/
+
+
+#mask {
+  position:absolute;
+  left:0;
+  top:0;
+  z-index:9000;
+  background-color:#000;
+  display:none;
+}
+  
+#boxes .window {
+  position:fixed;
+  left:0;
+  top:0;
+  width:440px;
+  height:200px;
+  display:none;
+  z-index:9999;
+  padding:20px;
+   border:5px;
+  border-color:#FF0000;
+}
+
+#boxes #dialog {
+  width:375px; 
+  height:203px;
+  padding:10px;
+  background-color:#ffffff;
+    border:5px;
+  border-color:#FF0000;
+}
+
+#boxes #dialog1 {
+   width:800px; 
+    height:300px;
+    padding:10px;
+  background-color:#ffffff;
+      border:5px;
+  border-color:#FF0000;
+}
+
+#boxes #dialog2 {
+width:800px; 
+height:300px;
+padding:10px;
+background-color:#ffffff;
+border:5px;
+border-color:#FF0000;
+}
+
+#boxes #dialog3 {
+width:400px; 
+height:200px;
+padding:10px;
+background-color:#ffffff;
+border:5px;
+border-color:#FF0000;
+}

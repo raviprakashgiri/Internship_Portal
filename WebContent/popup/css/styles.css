@@ -1,0 +1,127 @@
+
+/* remember to define focus styles! */
+:focus {
+	outline: 0;
+	-moz-outline: none;
+
+
+}
+
+/* remember to highlight inserts somehow! */
+ins {
+	text-decoration: none;
+}
+del {
+	text-decoration: line-through;
+}
+
+/* tables still need 'cellspacing="0"' in the markup */
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+/* reset styles ended */
+
+
+
+/*---popup styles starts here ----- */
+	.popupGrayBg {
+		position:fixed; 
+		width:100%; 
+		height:100%; 
+		background:#666666; 
+		z-index:1001; 
+		left:0; 
+		top:0; 
+		opacity:.5;
+		filter:progid:DXImageTransform.Microsoft.Alpha(Opacity=50);
+		}
+	.QTPopupCntnr {
+		width:900px; 
+		height:200px;
+		position:fixed; 
+		z-index:1200; 
+		background:#EFEFEF; 
+		left:30%; 
+		top:50%; 
+		margin-left:-244px; 
+		margin-top:-276px;
+		}
+	.gpBdrLeftTop {
+		width:6px;
+		height:6px;
+		background:url(../images/greenPopupBdr.png) left top no-repeat;
+		float:left;
+		}
+	.gpBdrRightTop {
+		width:6px;
+		height:6px;
+		background:url(../images/greenPopupBdr.png) right top no-repeat;
+		float:right;
+		}
+	.gpBdrTop {
+		height:2px;
+		background:#666666;
+		border-top:2px solid #666666;
+		margin-left:6px;
+		margin-right:6px;
+		}
+	.gpBdrLeft {
+		border-left:3px solid #666666;
+		background:#666666;
+		}
+	.gpBdrRight {
+		border-right:3px solid #666666;
+		background:#fff;
+		min-height:50px;
+		position:relative;
+	}
+	.gpBdrLeftBottom {
+		width:6px;
+		height:6px;
+		background:url(../images/greenPopupBdr.png) left bottom no-repeat;
+		float:left;
+		}
+	.gpBdrRightBottom {
+		width:6px;
+		height:6px;
+		background:url(../images/greenPopupBdr.png) right bottom no-repeat;
+		float:right;
+		}
+	.gpBdrBottom {
+		height:3px;
+		background:#fff;
+		border-bottom:3px solid #666666;
+		margin-left:6px;
+		margin-right:6px;
+		}
+	.gpBdrRight .caption {
+		background:#FFFFFF;
+		border-bottom:1px solid;
+		line-height:38px;
+		padding-left:10px;
+		font-family:Arial, Helvetica, sans-serif;
+		font-size:15px;
+		font-weight:bold;
+		color:#3b4f91;
+		}
+	.gpBdrRight .closeBtn {
+		background:red;
+		width:31px;
+		height:31px;
+		position:absolute;
+		right:-15px;
+		top:-15px;
+		background:url(../images/grn_pp_cls_btn_normal.png) no-repeat;
+		
+		}
+	.gpBdrRight .closeBtn:hover {
+		background:url(../images/grn_pp_cls_btn_over.png) no-repeat;
+		}
+		
+	.gpBdrRight .content {
+		padding:25px;
+		font-weight:normal;
+		}
+	
+/*---popup styles ends here ----- */
