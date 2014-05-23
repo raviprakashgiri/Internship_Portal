@@ -7,180 +7,436 @@
 <%@page import="com.iit.dbUtilities.DataService"%>
 <%@page import="java.sql.ResultSet"%>
 <html>
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>MOM</title>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<title>Internship Registration Form</title>
 
-<link rel="stylesheet" type="text/css" href="css/style.css">
-<!--top slide panel starts-->
-<link rel="stylesheet" href="css/topslide_css/style.css" type="text/css"
-	media="screen" />
-<link rel="stylesheet" href="css/topslide_css/slide.css" type="text/css"
-	media="screen" />
+		<link rel="stylesheet" type="text/css" href="css/style.css">
+		<!--show-hide table code start-->
+		<script>
+function show(obj,obj1,obj2,obj3) {
+	document.getElementById(obj).style.display = 'inline';
+	document.getElementById(obj1).style.display = 'none';
+	document.getElementById(obj2).style.display = 'none';
+	document.getElementById(obj3).style.display = 'none';
+}
 
-<!-- PNG FIX for IE6 -->
-<!-- http://24ways.org/2007/supersleight-transparent-png-in-ie6 -->
-<!--[if lte IE 6]>
+function hide(obj,obj1,obj2,obj3){
+//show('divReason');
+	document.getElementById(obj).style.display = 'none';
+	document.getElementById(obj1).style.display = 'none';
+	document.getElementById(obj2).style.display = 'none';
+	document.getElementById(obj3).style.display = 'none';
+}
+</script>
+		<!--show-hide table code end-->
+		<!--top slide panel starts-->
+		<link rel="stylesheet" href="css/topslide_css/style.css"
+			type="text/css" media="screen" />
+		<link rel="stylesheet" href="css/topslide_css/slide.css"
+			type="text/css" media="screen" />
+
+		<!-- PNG FIX for IE6 -->
+		<!-- http://24ways.org/2007/supersleight-transparent-png-in-ie6 -->
+		<!--[if lte IE 6]>
 		<script type="text/javascript" src="scripts/topslide_js/pngfix/supersleight-min.js"></script>
 	<![endif]-->
 
-<!-- jQuery - the core -->
-<script src="scripts/topslide_js/jquery-1.3.2.min.js"
-	type="text/javascript"></script>
-<!-- Sliding effect -->
-<script src="scripts/topslide_js/slide.js" type="text/javascript"></script>
+		<!-- jQuery - the core -->
+		<script src="scripts/topslide_js/jquery-1.3.2.min.js" type="text/javascript"></script>
+		<!-- Sliding effect -->
+		<script src="scripts/topslide_js/slide.js" type="text/javascript"></script>
 
-<!--top slide panel ends-->
-<!-- To display calender in top pannel START-->
-<link rel="stylesheet"
-	href="http://code.jquery.com/ui/1.9.2/themes/base/jquery-ui.css" />
-<script src="http://code.jquery.com/jquery-1.8.3.js"></script>
-<script src="http://code.jquery.com/ui/1.9.2/jquery-ui.js"></script>
-<link rel="stylesheet" href="css/style.css" />
-<style type="text/css">
-#tabs,#ui-datepicker-div,.ui-datepicker {
-	font-size: 85%;
+		<!--top slide panel ends-->
+		<script src="scripts/dropdowncontent.js"></script>
+		<script src="scripts/validate.js"></script>
+
+	
+   <!-- DATE TIME STARTS-->
+ <link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.16/themes/base/jquery-ui.css" type="text/css" media="all" />
+ <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js" type="text/javascript"></script>
+ <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.16/jquery-ui.min.js" type="text/javascript"></script> 
+<script type="text/javascript">
+$(function () {
+	//alert($('#joiningDate').val());
+$('#joiningDate').datepicker({ dateFormat: 'yy-mm-dd' ,minDate:'0'});
+//$('#leavingDate').datepicker({ dateFormat: 'yy-mm-dd' ,minDate:$('#joiningDate').val()});
+
+});
+</script>
+<script type="text/javascript">
+function datepick(){
+	if($('#joiningDate').val()!=""){
+		//alert("Yes");
+		$(function () {
+		$('#leavingDate').datepicker({ dateFormat: 'yy-mm-dd' ,minDate:$('#joiningDate').val()});
+		});
+	}
 }
+</script>
+<style>
+.ui-datepicker th { background-color: #CCCCFF; },.ui-datepicker{ font-size: 85%; }
 </style>
-<!-- To display calender in top pannel END-->
+                                <style type="text/css">
+                                                #tabs, #ui-datepicker-div, .ui-datepicker{ font-size: 85%; }
+                                </style>
+<!-- DATE TIME ENDS-->
+<!-- Auto fill Starts-->
+<link rel="stylesheet" type="text/css" href="css/jquery.autocomplete.css" />
+	<!-- <script src="http://www.google.com/jsapi"></script> -->  
+	<script>  
+		google.load("jquery", "1");
+	</script>
+	<script src="scripts/jquery.autocomplete.js"></script> 
+<!-- Auto fill Ends-->
+<script type="text/javascript">
+function enableSubmit(){
+	//alert("working fine");
+	if( document.getElementById('conformation').checked === false ){
+		//alert("true");
+	document.getElementById("submitButton").disabled=true;
+	}else{
+		document.getElementById("submitButton").disabled=false;
+		alert("Please accept the conditions");
+	}
+}
+</script>
 
 <script type="text/javascript">
-	$(document).ready(function() {
-		$("select").change(function() {
-			var id = $(this).attr("class");
-			var status_id = $(this).val();
-			console.log("Status changed" + status_id);
+function validate(){
+	/* alert($('input[name=availabilityForF2F]:checked').val()=="No");
+	var IndNum = /^[0]?[789]\d{9}$/;
+	var mobileNumber = document.getElementById("contactNumber");
+	alert(!isNaN(parseFloat(mobileNumber)) && isFinite(mobileNumber));
+	if(!IndNum.test(mobileNumber)){
+		alert("Please enter a valid mobile number");
+		return false;
+	} */
+	//alert(document.getElementById("tech1").value); 
+	//alert($('#tech1').val()+" "+$('#javaProfficiency').val());
+	//alert($('#tech1').val());
+	var skills = $('#tech1').val()+" "+$('#javaProfficiency').val()+","+
+					$('#tech2').val()+" "+$('#JSPServletsProfficiency').val()+","+
+					$('#tech3').val()+" "+$('#AJAXProfficiency').val()+","+
+					$('#tech4').val()+" "+$('#HTMLProfficiency').val()+","+
+					$('#tech5').val()+" "+$('#MySqlProfficiency').val()+","+
+					$('#tech6').val()+" "+$('#OracleProfficiency').val()+","+
+					$('#tech7').val()+" "+$('#AndroidProfficiency').val();
+	//alert(skills);
+	document.getElementById("skills").value = skills;
+	/* if(document.getElementById("availabilityForF2F").checked){
+		alert(document.getElementById("availabilityForF2F").value);
+	} */
+		//alert();
+		
+	if( document.getElementById('conformation').checked === false ){
+		alert("Please accept the conditions");
+		return false;
+		document.getElementById('conformation').focus();
+	}
+	/* if( document.getElementById('percentage').value=="--CGPA--" ){
+		alert("Please select your CGPA");
+		document.getElementById('percentage').focus();
+		return false;
+	} */
+	if( document.getElementById('joiningDate').value=="" ){
+		alert("Please select Joining date");
+		document.getElementById('joiningDate').focus();
+		return false;
+	}
+	
+	if( document.getElementById('leavingDate').value=="" ){
+		document.getElementById('leavingDate').focus();
+		alert("Please select Leaving date");
+		return false;
+	}
+	
+	if( document.getElementById('yearOfStudy').value=="0" ){
+		alert("Please select persuing year");
+		document.getElementById('yearOfStudy').focus();
+		return false;
+	}
+	/*if( document.getElementById('androidRating').value=="--Android Rating--" ){
+		alert("Please select your Android Rating");
+		document.getElementById('androidRating').focus();
+		return false;
+	} */
+	//alert($('input[name=availabilityForF2F]:checked').val()=="No");
+	if($('input[name=availabilityForF2F]:checked').val()=="No" && document.getElementById("reasonForUnavailability").value==""){
+		alert("Please specify the reason for unavailability.");
+		return false;
+	}
+	else{
+		return true;
+	}
+}
 
-			$.ajax({
-				url : 'ActionServlet',
-				type : 'POST',
-				data : {
-					'WhatFor' : 'shiftCandidate',
-					'candidate_id' : id,
-					'status_id' : status_id
-				},
-				success : function() {
-					//				$("#update-comment-"+id).fadeIn(100).text("Updated").fadeOut(3000);
-					window.location.reload();
-					$('#actions').val(0);
-				}
-			});
-		});
-	});
 </script>
+<script>
+function unavailability(val){
+	//var val = document.getElementById("availabilityForF2F").value;
+	if(val=="Yes"){
+		document.getElementById("unavailability").style.display = 'none';
+		document.getElementById("reasonForUnavailability").value="";
+	}
+	if(val=="No"){
+		document.getElementById("unavailability").style.display = 'block';
+	}
+	
+}
+</script> 	
 </head>
 
-<body topmargin="0" leftmargin="0" marginwidth="0" marginheight="0">
+
+<!-- Panel -->
+			<!-- <div id="toppanel">
+				<div id="panel">
+
+					<script src="scripts/top_pannel.js"></script>
+				</div>
+			</div> -->
+<!--panel -->
+	<body topmargin="0" leftmargin="0" marginwidth="0" marginheight="0">
+	
 	<%
-		String query = "select ra_id,first_name,persuing,cgpa,stream,availabilityForF2F,appliedthrough,email_id from ra_applicant where status='Pending'";
+		String raId = request.getParameter("ra_id");
+		String query = "select first_name,last_name,contact_number,email_id,college_name,cgpa,feasible_joining_date,skills,resume_lacation,current_year,availabilityForF2F,additional_info,persuing,stream,interests,reasonForUnavailability from ra_applicant where ra_id="+raId;
+		System.out.println(query);
 		ResultSet rs = DataService.getResultSet(query);
-		Object[][] data = DataService.getDataFromResultSet(rs);
+		Object data[][] = DataService.getDataFromResultSet(rs);
+		String skills = data[0][7].toString();
+		skills = skills.replaceAll(",", "<br>");
+		System.out.println(skills);
 	%>
-	<form name="form1" method="post" action="">
-		<!-- <table width="100%" border="0" cellspacing="0" cellpadding="4">
-			<tr>
-				<td width="41%"><script src="scripts/header.js"></script></td>
-			</tr>
-		</table> -->
+			<form action="ActionServlet" method="POST" enctype="multipart/form-data" name="form" onsubmit="return validate();">
+				
+			<table width="100%" border="0" cellspacing="4" cellpadding="10">
+				<tr>
+					<td width="80%" valign="top" bgcolor="#EFEFEF">
+						<div id="mom_details">
+							<table width="95%" border="0" align="center" cellpadding="0"
+								cellspacing="0">
 
-		<table width="100%" border="0" cellspacing="2" cellpadding="10">
-			<tr>
-				<td width="80%" valign="top" bgcolor="#EFEFEF"><table
-						width="95%" border="0" align="center" cellpadding="0"
-						cellspacing="0">
-						<!-- <tr>
-							<td>&nbsp;</td>
-							<td align="right" class="bigtitlered"><input type="button"
-								name="button6" id="button5" value="Logout" class="but"
-								onclick="location.href='ActionServlet?WhatFor=logOut'" /></td>
-							<td>&nbsp;</td>
-						</tr> -->
-						<!--  <tr>
-          <td width="1%"><img src="images/1.gif" alt="" width="16" height="57"></td>
-          <td width="98%" background="images/2.gif" class="bigtitlered">Search | <span class="title">Action By - Jaideep Verma </span></td>
-          <td width="1%"><img src="images/3.gif" alt="" width="15" height="57"></td>
-        </tr> -->
-						<tr>
-							<td width="1%"><img src="images/1.gif" alt="" width="16"
-								height="57"></td>
-							<td width="98%" background="images/2.gif" class="bigtitlered">
-								RA applicants List</td>
-							<td width="1%"><img src="images/3.gif" alt="" width="15"
-								height="57"></td>
-						</tr>
-						<tr>
-							<td background="images/8.gif"></td>
-							<td bgcolor="#FFFFFF"><table width="98%" border="0"
-									align="center" cellpadding="5" cellspacing="2"
-									style="border: 0px solid; border-color: #CCCCCC;">
-									<tr align="left" bgcolor="#FFFFFF" class="table_head">
-										<td width="7%" height="25" align="left"
-											style="border-bottom: 1px solid; border-color: #FF6600;">Name</td>
+								<tr>
+									<td width="1%">
+										<img src="images/1.gif" alt="" width="16" height="57">
+									</td>
+									<td width="98%" background="images/2.gif" class="bigtitlered">
+										Intern Details
+										<a style="float:right;" href='RAapplicantsList.jsp'>Back to List</a>
+									</td>
+									<td width="1%">
+										<img src="images/3.gif" alt="" width="15" height="57">
+									</td>
+								</tr>
+								<tr>
+									<td background="images/8.gif"></td>
+									<td bgcolor="#FFFFFF">
+										<table width="100%" border="0" cellpadding="10"
+											cellspacing="0" class="content">
+											<tr>
+												
+											</tr>
+											
+											<tr>
+												<td width="13%" align="right" class="text">
+													<br>First Name:<br><br>Last Name<br><br><br>Contact Number<br><br>EmailId
+												</td>
+												<td width="30%" class="tableborder"
+													style="border-right:1px solid; border-color:#CCCCCC;">
+													<span class="tableborder"><br><br> <input name="firstName" placeholder="First Name" size="35"
+															class="textbox" id="firstName" value="<%=data[0][0] %>" readonly><br><br>
+															<input name="lastName" type="text" class="textbox" placeholder="Last Name" size="35"
+														id="lastName" value="<%=data[0][1] %>" readonly><br><br>
+														<input name="contactNumber" type="text" class="textbox" placeholder="Contact Number" size="35"
+														id="contactNumber" value="<%=data[0][2]%>" readonly><br><br>
+														<input name="emailId" type="email" class="textbox" placeholder="someone@xmail.com" id="emailId" autocomplete="off" size="35" value="<%=data[0][3]%>" readonly/><br><br>
+														
+													</span>
+												</td>
+												
+												<td align="right" nowrap class="text" width = "13%">
+													Your Skill Set
+												</td>
+												
+												<td class="text" width = "30%">
+												
+												<%=skills %>
+												<br>
+								                  
+												</td>
+											</tr>
+											
+											<tr>
+												<td width="13%" align="right" class="text">
+													Pursuing:
+												</td>
+												<td width="38%" class="tableborder"
+													style="border-right:1px solid; border-color:#CCCCCC;">
+													<span class="tableborder"> <input name="persuing" type="text" class="textbox" placeholder="Persuing"
+														id="persuing" size="40"  value="<%=data[0][12]%>" readonly>
+													</span>
+												</td>
+												<td align="right" valign="top" nowrap class="text">
+													 Availability for F2F Interview<br>
+													 @IIT Bombay
+												</td>
+												<td class="text" width="30%">
+												<input type="text" class="text" value="<%=data[0][10]%>" readonly>
+													<!-- <input type="radio" name="availabilityForF2F" id="availabilityForF2F" value="Yes" onclick="unavailability('Yes');" checked="checked">Yes
+													<input type="radio" name="availabilityForF2F" id="availabilityForF2F" value="No" onclick="unavailability('No');">No<br> -->
+													<!-- <div id="unavailability" style='display:none';> -->
+													<%if(data[0][12].toString().equals("No")){ %>
+													<input type="text" name="reasonForUnavailability" id="reasonForUnavailability" value="<%=data[0][15]%>" placeholder="Reason For unavailability of Interview" size="40">
+													<%} %>
+													<!-- </div> -->
+												</td>
+											</tr>
+											
+											<tr>
+												<td width="13%" align="right" class="text">
+													Stream:
+												</td>
+												<td width="38%" class="tableborder"
+													style="border-right:1px solid; border-color:#CCCCCC;">
+													<span class="tableborder"> <input name="stream" type="text" class="textbox" placeholder="Stream"
+														id="stream" size="40" value="<%=data[0][13]%>" readonly>
+													</span>
+												</td>
+												<td align="right" valign="top" nowrap class="text">
+													 <br>Resume
+												</td>
+												<td class="text">
+													<!-- <input type="file" name="resume" id="resume" required> -->
+													<a href="<%=data[0][8]%>">Download</a>
+													
+												</td>
+											</tr>
+											
+											<tr>
+												<td width="13%" align="right" class="text">
+													University/College name:
+												</td>
+												<td width="38%" class="tableborder"
+													style="border-right:1px solid; border-color:#CCCCCC;">
+													<span class="tableborder"> <input name="collegeName" type="text" class="textbox" placeholder="College Name"
+														id="collegeName" size="40" value="<%=data[0][4]%>" readonly>
+													</span>
+												</td>
+												<td width="23%" align="right" class="text">
+													Feasible Joining Date
+												</td>
+												<td width="26%" class="tableborder">
+													<input name="joiningDate" type="text" class="textbox" 
+														id="joiningDate"   value="<%=data[0][6]%>" readonly>
+												</td>
+											</tr>
+											<tr>
+												<td align="right" nowrap class="text">
+													CGPA / Percentage
+												</td>
+												<td style="border-right:1px solid; border-color:#CCCCCC;">
+													<input type="text" name="percentage" id="percentage" value="<%=data[0][5]%>" readonly>
+												</td>
+												<td align="right" valign="top" nowrap class="text">
+													 Interests
+												</td>
+												<td width="30%">
+													<textarea name="interests" cols="34" rows="3"
+														class="textarea" id="interests" maxlength="500" readonly><%=data[0][14]%></textarea>
+												</td>
+											</tr>
+											<tr>
+												<td align="right" nowrap class="text">
+													Current Year Of Study:
+												</td>
+												<td width="38%" class="tableborder"
+													style="border-right:1px solid; border-color:#CCCCCC;">
+													<input type="text" class = "text" value="<%=data[0][9]%>" readonly>
+													<!-- <script>
+													for (i = new Date().getFullYear(); i > 1999; i--)
+													{
+													    $('#passedOut').append($('<option />').val(i).html(i));
+													}
+													</script> -->
+												</td>
+												<td align="right" nowrap class="text">
+													 Additional Information<br> you want to add
+												</td>
+												<td width="38%" class="tableborder"
+													style="border-right:1px solid; border-color:#CCCCCC;">
+													<textarea name="additionalInformation" cols="34" rows="3"
+														class="textarea" id="additionalInformation" maxlength="500" readonly><%=data[0][11]%></textarea>
+												</td>
+											</tr>
+																		
+											<tr>
+												<td align="right" nowrap class="text">
+													 <!-- Additional Information<br> you want to add -->
+												</td>
+												<td width="38%" class="tableborder"
+													style="border-right:1px solid; border-color:#CCCCCC;">
+													<!-- <textarea name="additionalInformation" cols="34" rows="3"
+														class="textarea" id="additionalInformation" maxlength="500" required></textarea> -->
+												</td>
+												
+											</tr>
+											
+											
+											<tr>
+											
+												
+												<td align="right" nowrap class="text">
+													<!-- Strong Reasons For Why <br>You Want To Work At IIT-Bombay -->
+												</td>
+												<td class="tableborder" width="30%" style="border-right:1px solid; border-color:#CCCCCC;">
+													<!-- <textarea name="reasonForChange" cols="34" rows="3"
+														class="textarea" id="reasonForChange"></textarea> -->
+												</td>
+												
+											</tr>
+											
+											
+											<tr>
+												<!-- <td height="66" colspan="4" align="left" valign="top" nowrap
+													class="text">
+													<input type="checkbox" name="conformation" id = "conformation">
+													I confirm that all the information rendered in the above form is true. If any information found to be false, I will be responsible for the consequences and the actions taken by the IIT-B Authorities.<br><br>
+													<input name="submitButton" type="Submit" class="but"
+														id="submitButton" value="Submit" onClick="" >
+													<input name="button4" type="Submit" class="but"
+														id="button4" value="Save &amp; Continue" onClick="document.form.ButtonPressed.value='Save And Continue';">
+													<input name="Reset" type="reset" class="butgrey"
+														id="button5" value="Clear">
+													<input name="WhatFor" type="hidden" id="WhatFor" value="registerRA">
+												</td> -->
+											</tr>
 
-										<td width="15%" align="left"
-											style="border-bottom: 1px solid; border-color: #FF6600;">Highest
-											Qualification</td>
-										<td width="23%" align="left"
-											style="border-bottom: 1px solid; border-color: #FF6600;">CGPA</td>
-										<td width="10%" align="left" bgcolor="#FFFFFF"
-											style="border-bottom: 1px solid; border-color: #FF6600;">Stream</td>
-										<td width="12%" align="left" bgcolor="#FFFFFF"
-											style="border-bottom: 1px solid; border-color: #FF6600;">Availability
-											For F2F</td>
-											<td width="12%" align="left" bgcolor="#FFFFFF"
-											style="border-bottom: 1px solid; border-color: #FF6600;">Applied Through
-											</td>
+										</table>
+									</td>
+									<td background="images/4.gif"></td>
+								</tr>
+								<tr>
+									<td>
+										<img src="images/7.gif" alt="" width="16" height="17">
+									</td>
+									<td background="images/6.gif"></td>
+									<td>
+										<img src="images/5.gif" alt="" width="15" height="17">
+									</td>
+								</tr>
+							</table>
+						</div>
+					</td>
+				</tr>
+			</table>
+		</form>
+		<script type="text/javascript">
+//Call dropdowncontent.init("anchorID", "positionString", glideduration, "revealBehavior") at the end of the page:
 
-										<td width="10%" align="left" bgcolor="#FFFFFF"
-											style="border-bottom: 1px solid; border-color: #FF6600;">Email</td>
-										<td width="10%"
-											style="border-bottom: 1px solid; border-color: #FF6600;">View</td>
-										<td width="10%"
-											style="border-bottom: 1px solid; border-color: #FF6600;">Actions</td>
-									</tr>
+dropdowncontent.init("searchlink", "right-bottom", 500, "mouseover");
+dropdowncontent.init("contentlink", "left-top", 300, "click");
 
-									<%
-										int ReportLength = data.length;
-										for (int count = 0, cnt = 1; count < ReportLength; count++, cnt++) {
-									%>
-									<tr>
-										<td align="left" class="tdbgwhite"><%=data[count][1]%></td>
-
-										<td align="left" class="tdbgwhite"><%=data[count][2]%></td>
-										<td align="left" class="tdbgwhite"><%=data[count][3]%></td>
-										<td align="left" class="tdbgwhite"><%=data[count][4]%></td>
-										<td align="left" class="tdbgwhite"><%=data[count][5]%></td>
-										<td align="left" class="tdbgwhite"><%=data[count][6]%></td>
-										<td align="left" class="tdbgwhite"><%=data[count][7]%></td>
-										<td align="left" class="tdbgwhite"><a
-											href="RADetails.jsp?ra_id=<%=data[count][0]%>">View</a></td>
-										<td align="left" class="tdbgwhite"><select name="actions"
-											id="actions" class="<%=data[count][0]%>">
-												<option value="0" selected="selected">--Select
-													Action--</option>
-												<option value="shortListRA">Short List</option>
-												<option value="deleteRA">Delete</option>
-										</select></td>
-									</tr>
-									<%
-										}
-									%>
-									<!-- <tr>
-				<td align="left" class="tdbgwhite"></td>
-				</tr> -->
-
-								</table></td>
-							<td background="images/4.gif"></td>
-						</tr>
-						<tr>
-							<td><img src="images/7.gif" alt="" width="16" height="17"></td>
-							<td background="images/6.gif"></td>
-							<td><img src="images/5.gif" alt="" width="15" height="17"></td>
-						</tr>
-					</table></td>
-			</tr>
-		</table>
-	</form>
-
-</body>
+</script>
+	</body>
 </html>
