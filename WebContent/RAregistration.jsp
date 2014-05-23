@@ -215,7 +215,7 @@ function unavailability(val){
 										<img src="images/1.gif" alt="" width="16" height="57">
 									</td>
 									<td width="98%" background="images/2.gif" class="bigtitlered">
-										Internship Application form 
+										RA Application form
 									</td>
 									<td width="1%">
 										<img src="images/3.gif" alt="" width="15" height="57">
@@ -414,6 +414,13 @@ function unavailability(val){
 															<option value="4">4</option>
 															<option value="5">5</option>
 													</select>
+													<tr>
+												<td align="right" nowrap class="text">
+											
+												</td>
+												<td width="38%" class="tableborder"
+													style="border-right:1px solid; border-color:#CCCCCC;">
+													
 													<!-- <script>
 													for (i = new Date().getFullYear(); i > 1999; i--)
 													{
@@ -434,18 +441,11 @@ function unavailability(val){
 											<tr>
 												<td align="right" nowrap class="text">
 													 <!-- Additional Information<br> you want to add -->
-													 Applied Through:
 												</td>
 												<td width="38%" class="tableborder"
 													style="border-right:1px solid; border-color:#CCCCCC;">
 													<!-- <textarea name="additionalInformation" cols="34" rows="3"
 														class="textarea" id="additionalInformation" maxlength="500" required></textarea> -->
-														<select name="appliedthrough" id="appliedthrough" class="list"  >
-															<option value="0">--Select--</option>
-															<option value="Microsoft">Microsoft</option>
-															<option value="Internshala">Internshala</option>
-															
-													</select>
 												</td>
 												
 											</tr>
