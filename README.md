@@ -12,4 +12,8 @@ The directory is divided into three parts:
 	3) src
 
 	*********************************************************************
-	Web Content contains
+	Web Content contains all the page web data.In includes various pages
+	example RaApplicant list.jsp, Raregistration.jsp, and similary for all three category.
+
+	# Build contents all the codes running behind the pages.
+	
