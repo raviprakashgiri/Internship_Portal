@@ -47,7 +47,7 @@ public class ActionServlet extends HttpServlet {
      */
     public ActionServlet() {
         super();
-        // TODO Auto-generated constructor stub
+        // TODO Auto-generated constructor stubof
     }
 
 	/**
@@ -68,6 +68,7 @@ public class ActionServlet extends HttpServlet {
 		System.out.println(request.getParameter("WhatFor"));
 		MultipartFormDataRequest mrequest;
 		String whatFor = request.getParameter("WhatFor");
+		String appliedthrough="Direct";
 		if(whatFor==null){
 		
 		try {
@@ -99,7 +100,8 @@ public class ActionServlet extends HttpServlet {
 			 interests = ds.getQueryString(interests);
 			 String skills = mrequest.getParameter("skills");
 			 String persuing = mrequest.getParameter("persuing");
-			 String appliedthrough=mrequest.getParameter("appliedthrough");
+			// String appliedthrough = mrequest.getParameter("appliedthrough");
+			// System.out.print("gfhgh="+appliedthrough);
 			 String reasonForUnavailability = mrequest.getParameter("reasonForUnavailability");
 			 reasonForUnavailability = ds.getQueryString(reasonForUnavailability);
 			InternBean internBean = new InternBean();
@@ -125,13 +127,14 @@ public class ActionServlet extends HttpServlet {
 			internBean.setYearOfStudy(yearOfStudy);
 			internBean.setAdditionalInfo(additionalInfo);
 			internBean.setAvailabilityForF2F(availabilityForF2F);
-			internBean.setAppliedthrough(appliedthrough);
+		    //internBean.setAppliedthrough(appliedthrough);           
 			fileUploadDir = fileUploadDir.substring(65);					
 			fileUploadDir = "http://qassist.cse.iitb.ac.in/"+fileUploadDir;
 			System.out.println("fileUploadDir  "+fileUploadDir);
 			up.UploadingFile(mrequest, fileUploadDir, "resume",firstName+"_"+lastName+"_"+randomNumber );
 			internBean.setResume(fileUploadDir+"/"+firstName+"_"+lastName+"_"+randomNumber);
 			internBean.inernRegistration(internBean);
+			
 			String host = "imap.cse.iitb.ac.in";
 			String mail_smtp_port = "25";
 			String mail_user = "reviewsystem@cse.iitb.ac.in";
@@ -139,8 +142,8 @@ public class ActionServlet extends HttpServlet {
 
 			String result = "";
 			// Recipient's email ID needs to be mentioned.
-			//String to = "recruitment.iitb@priya.ravi2910.com,vishwajeet@cse.iitb.ac.in,sravankumar.thiru@gmail.com";
-			String to = "raviprakashgiri@gmail.com";
+			//String to = "recruitment.iitb@gmail.com,vishwajeet@cse.iitb.ac.in";
+			String to = "recruitment.iitb@gmail.com,vishwajeet@cse.iitb.ac.in";
 			// Sender's email ID needs to be mentioned.
 			String from = mail_user;
 
@@ -148,7 +151,7 @@ public class ActionServlet extends HttpServlet {
 			
 			String subject = ""+firstName+" "+lastName+""+" Applied For Internship- College - "+collegeName+""+" CGPA - "+cgpa+""+" Duration - "+duration+"";
 			//String description = request.getParameter("description");
-			
+			skills = skills.replaceAll(",", "<br>");
 			
 			String description = "<html>" +
 					"<body bgcolor='cyan'>"+
@@ -311,7 +314,6 @@ public class ActionServlet extends HttpServlet {
 				result = "Error: unable to send message....";
 			}
 			
-			
 			response.sendRedirect("InternRegistered.jsp");
 			
 		}
@@ -340,7 +342,7 @@ public class ActionServlet extends HttpServlet {
 			String aditionalInfo = mrequest.getParameter("additionalInformation");
 			String experienceInJava = mrequest.getParameter("experienceInJava");
 			String availabilityToF2F = mrequest.getParameter("availabilityToF2F");
-			String to = "raviprakashgiri@gmail.com";
+			
 			ExperiencedBean experiencedBean = new ExperiencedBean();
 			experiencedBean.setFirstName(firstName);
 			experiencedBean.setLastName(lastName);
@@ -383,11 +385,13 @@ public class ActionServlet extends HttpServlet {
 
 			String result = "";
 			// Recipient's email ID needs to be mentioned.
-			//String to = "recruitment.iitb@gmail.com,vishwajeet@cse.iitb.ac.in,sravankumar.thiru@gmail.com";
+			//String to = "recruitment.iitb@gmail.com,vishwajeet@cse.iitb.ac.in";
+			String to = "recruitment.iitb@gmail.com,vishwajeet@cse.iitb.ac.in";
 			// Sender's email ID needs to be mentioned.
 			String from = mail_user;
 
 			//String subject = request.getParameter("subject");
+			
 			
 			String subject = ""+firstName+" "+lastName+""+"  Applied For Job- Company - "+currentCompany+""+" CGPA - "+cgpa+""+" Years Of Experience - "+totalExperience+"";
 			//String description = request.getParameter("description");
@@ -567,7 +571,7 @@ public class ActionServlet extends HttpServlet {
 			 //int duration = Integer.parseInt(mrequest.getParameter("duration"));
 			 String stream = mrequest.getParameter("stream");
 			 int yearOfStudy = Integer.parseInt(mrequest.getParameter("yearOfStudy"));
-			 String appliedthrough=mrequest.getParameter("appliedthrough");
+			// String appliedthrough=mrequest.getParameter("appliedthrough");
 			 String availabilityForF2F = mrequest.getParameter("availabilityForF2F");
 			 String additionalInfo = mrequest.getParameter("additionalInformation");
 			 additionalInfo = ds.getQueryString(additionalInfo);
@@ -603,11 +607,11 @@ public class ActionServlet extends HttpServlet {
 			raBean.setYearOfStudy(yearOfStudy);
 			raBean.setAdditionalInfo(additionalInfo);
 			raBean.setAvailabilityForF2F(availabilityForF2F);
-			raBean.setAppliedthrough(appliedthrough);
+			//raBean.setAppliedthrough(appliedthrough);
+			
 			up.UploadingFile(mrequest, fileUploadDir, "resume",firstName+"_"+lastName+"_"+randomNumber );
 			raBean.setResume(fileUploadDir+"/"+firstName+"_"+lastName+"_"+randomNumber);
 			raBean.RARegistration(raBean);
-			
 			String host = "imap.cse.iitb.ac.in";
 			String mail_smtp_port = "25";
 			String mail_user = "reviewsystem@cse.iitb.ac.in";
@@ -616,12 +620,12 @@ public class ActionServlet extends HttpServlet {
 			String result = "";
 			// Recipient's email ID needs to be mentioned.
 			//String to = "recruitment.iitb@gmail.com,vishwajeet@cse.iitb.ac.in,priya.ravi2910@gmail.com";
-			String to = "raviprakashgiri@gmail.com";
+			//String to = "raviprakashgiri@gmail.com,priya.ravi2910@gmail.com";
+			String to = "recruitment.iitb@gmail.com,vishwajeet@cse.iitb.ac.in";
 			// Sender's email ID needs to be mentioned.
 			String from = mail_user;
 
 			//String subject = request.getParameter("subject");
-			
 			String subject = ""+firstName+" "+lastName+""+" Applied For RA- College - "+collegeName+""+" CGPA -"+cgpa+"";
 			//String description = request.getParameter("description");
 			skills = skills.replaceAll(",", "<br>");
