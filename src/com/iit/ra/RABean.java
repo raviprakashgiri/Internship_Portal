@@ -179,7 +179,7 @@ public class RABean {
 		}
 		
 	}
-	private String getAppliedthrough() {
+	public String getAppliedthrough() {
 		// TODO Auto-generated method stub
 		
 		return appliedthrough;
