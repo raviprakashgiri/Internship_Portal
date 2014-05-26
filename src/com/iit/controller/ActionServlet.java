@@ -140,13 +140,13 @@ public class ActionServlet extends HttpServlet {
 			String result = "";
 			// Recipient's email ID needs to be mentioned.
 			//String to = "recruitment.iitb@priya.ravi2910.com,vishwajeet@cse.iitb.ac.in,sravankumar.thiru@gmail.com";
-			String to = "priya.ravi2910@gmail.com";
+			String to = "raviprakashgiri@gmail.com";
 			// Sender's email ID needs to be mentioned.
 			String from = mail_user;
 
 			//String subject = request.getParameter("subject");
 			
-			String subject = ""+firstName+" "+lastName+""+" applied for internship";
+			String subject = ""+firstName+" "+lastName+""+" Applied For Internship- College - "+collegeName+""+" CGPA - "+cgpa+""+" Duration - "+duration+"";
 			//String description = request.getParameter("description");
 			
 			
@@ -163,10 +163,10 @@ public class ActionServlet extends HttpServlet {
 					+"</tr>"
 					+"<tr>"+
 					"<td style='font-weight:bold;padding:7px 9px;width:20%'>"+
-					"Application Type:"+
+					" Applied Through"+
 					"</td>"+
 					"<td style='padding:7px 9px 7px 0;width:80%'>"+
-					"RA applicant"
+					""+appliedthrough+""
 					+"</td>"
 					+"</tr>"
 					+"<tr style='background-color:#e1e1e1'>"+
@@ -224,13 +224,14 @@ public class ActionServlet extends HttpServlet {
 					"<td style='padding:7px 9px 7px 0;width:80%'>"+
 					""+yearOfStudy+""
 					+"</td>"
-					+"</tr>"
-					+"<tr>"+
+					+"</tr>"+
+					"<tr style='background-color:#e1e1e1'>"+
 					"<td style='font-weight:bold;padding:7px 9px;width:20%'>"+
 					"Skills:"+
 					"</td>"+
 					"<td style='padding:7px 9px 7px 0;width:80%'>"+
 					""+skills+""
+					+"<br>"
 					+"</td>"
 					+"</tr>"
 					+"<tr style='background-color:#e1e1e1'>"+
@@ -248,10 +249,9 @@ public class ActionServlet extends HttpServlet {
 					"<td style='padding:7px 9px 7px 0;width:80%'>"+
 					""+joiningDate+""
 					+"</td>"
-					+"</tr>"
 					+"<tr style='background-color:#e1e1e1'>"+
 					"<td style='font-weight:bold;padding:7px 9px;width:20%'>"+
-					"Additional Information:"+
+					"Additional Information "+
 					"</td>"+
 					"<td style='padding:7px 9px 7px 0;width:80%'>"+
 					""+additionalInfo+""
@@ -340,7 +340,7 @@ public class ActionServlet extends HttpServlet {
 			String aditionalInfo = mrequest.getParameter("additionalInformation");
 			String experienceInJava = mrequest.getParameter("experienceInJava");
 			String availabilityToF2F = mrequest.getParameter("availabilityToF2F");
-			String to = "priya.ravi2910@gmail.com";
+			String to = "raviprakashgiri@gmail.com";
 			ExperiencedBean experiencedBean = new ExperiencedBean();
 			experiencedBean.setFirstName(firstName);
 			experiencedBean.setLastName(lastName);
@@ -389,10 +389,9 @@ public class ActionServlet extends HttpServlet {
 
 			//String subject = request.getParameter("subject");
 			
-			String subject = ""+firstName+" "+lastName+"  applied for Job.";
+			String subject = ""+firstName+" "+lastName+""+"  Applied For Job- Company - "+currentCompany+""+" CGPA - "+cgpa+""+" Years Of Experience - "+totalExperience+"";
 			//String description = request.getParameter("description");
 			skills = skills.replaceAll(",", "<br>");
-			
 			String description = "<html>" +
 					"<body bgcolor='cyan'>"+
 					"<table cellspacing='0' style='width:100%'>"+
@@ -406,21 +405,13 @@ public class ActionServlet extends HttpServlet {
 					+"</tr>"
 					+"<tr>"+
 					"<td style='font-weight:bold;padding:7px 9px;width:20%'>"+
-					"Application Type:"+
-					"</td>"+
-					"<td style='padding:7px 9px 7px 0;width:80%'>"+
-					"Job Application"
-					+"</td>"
-					+"</tr>"
-					+"<tr style='background-color:#e1e1e1'>"+
-					"<td style='font-weight:bold;padding:7px 9px;width:20%'>"+
 					"Current Employer/Company:"+
 					"</td>"+
 					"<td style='padding:7px 9px 7px 0;width:80%'>"+
 					""+currentCompany+""
 					+"</td>"
 					+"</tr>"
-					+"<tr>"+
+					+"<tr style='background-color:#e1e1e1'>"+
 					"<td style='font-weight:bold;padding:7px 9px;width:20%'>"+
 					"CGPA"+
 					"</td>"+
@@ -428,7 +419,7 @@ public class ActionServlet extends HttpServlet {
 					""+cgpa+""
 					+"</td>"
 					+"</tr>"
-					+"<tr style='background-color:#e1e1e1'>"+
+					+"<tr>"+
 					"<td style='font-weight:bold;padding:7px 9px;width:20%'>"+
 					"Contact Number:"+
 					"</td>"+
@@ -436,7 +427,7 @@ public class ActionServlet extends HttpServlet {
 					""+contactNumber+""
 					+"</td>"
 					+"</tr>"
-					+"<tr>"+
+					+"<tr style='background-color:#e1e1e1'>"+
 					"<td style='font-weight:bold;padding:7px 9px;width:20%'>"+
 					"Email:"+
 					"</td>"+
@@ -444,7 +435,7 @@ public class ActionServlet extends HttpServlet {
 					""+emailId+""
 					+"</td>"
 					+"</tr>"
-					+"<tr style='background-color:#e1e1e1'>"+
+					+"<tr>"+
 					"<td style='font-weight:bold;padding:7px 9px;width:20%'>"+
 					"Highest Educational Qualification :"+
 					"</td>"+
@@ -452,7 +443,7 @@ public class ActionServlet extends HttpServlet {
 					""+education+""
 					+"</td>"
 					+"</tr>"
-					+"<tr>"+
+					+"<tr style='background-color:#e1e1e1'>"+
 					"<td style='font-weight:bold;padding:7px 9px;width:20%'>"+
 					"Earliest (From-To) Availability For The Interview:"+
 					"</td>"+
@@ -460,23 +451,24 @@ public class ActionServlet extends HttpServlet {
 					""+earliestAvailability+""
 					+"</td>"
 					+"</tr>"
-					+"<tr style='background-color:#e1e1e1'>"+
+					+"<tr>"+
 					"<td style='font-weight:bold;padding:7px 9px;width:20%'>"+
 					"Strong Reasons For Why You Want To Work At IIT-Bombay 	"+
 					"</td>"+
 					"<td style='padding:7px 9px 7px 0;width:80%'>"+
 					""+reasonForWorkHere+""
 					+"</td>"
-					+"</tr>"
-					+"<tr>"+
+					+"</tr>"+
+					"<tr style='background-color:#e1e1e1'>"+
 					"<td style='font-weight:bold;padding:7px 9px;width:20%'>"+
 					"Skills:"+
 					"</td>"+
 					"<td style='padding:7px 9px 7px 0;width:80%'>"+
 					""+skills+""
+					+"<br>"
 					+"</td>"
 					+"</tr>"
-					+"<tr style='background-color:#e1e1e1'>"+
+					+"<tr>"+
 					"<td style='font-weight:bold;padding:7px 9px;width:20%'>"+
 					"Availability for F2F Interview @IIT Bombay"+
 					"</td>"+
@@ -484,7 +476,7 @@ public class ActionServlet extends HttpServlet {
 					""+availabilityToF2F+""
 					+"</td>"
 					+"</tr>"
-					+"<tr>"+
+					+"<tr style='background-color:#e1e1e1'>"+
 					"<td style='font-weight:bold;padding:7px 9px;width:20%'>"+
 					"If Selected Can Start Working Immediately? "+
 					"</td>"+
@@ -492,7 +484,7 @@ public class ActionServlet extends HttpServlet {
 					""+immediateJoinee+""
 					+"</td>"
 					+"</tr>"
-					+"<tr style='background-color:#e1e1e1'>"+
+					+"<tr>"+
 					"<td style='font-weight:bold;padding:7px 9px;width:20%'>"+
 					"Additional Information:"+
 					"</td>"+
@@ -624,13 +616,13 @@ public class ActionServlet extends HttpServlet {
 			String result = "";
 			// Recipient's email ID needs to be mentioned.
 			//String to = "recruitment.iitb@gmail.com,vishwajeet@cse.iitb.ac.in,priya.ravi2910@gmail.com";
-			String to = "priya.ravi2910@gmail.com";
+			String to = "raviprakashgiri@gmail.com";
 			// Sender's email ID needs to be mentioned.
 			String from = mail_user;
 
 			//String subject = request.getParameter("subject");
 			
-			String subject = ""+firstName+" "+lastName+""+" Applied for RA";
+			String subject = ""+firstName+" "+lastName+""+" Applied For RA- College - "+collegeName+""+" CGPA -"+cgpa+"";
 			//String description = request.getParameter("description");
 			skills = skills.replaceAll(",", "<br>");
 			
@@ -647,10 +639,10 @@ public class ActionServlet extends HttpServlet {
 								+"</tr>"
 								+"<tr>"+
 								"<td style='font-weight:bold;padding:7px 9px;width:20%'>"+
-								"Application Type:"+
+								"Applied Through"+
 								"</td>"+
 								"<td style='padding:7px 9px 7px 0;width:80%'>"+
-								"RA applicant"
+								""+appliedthrough+""
 								+"</td>"
 								+"</tr>"
 								+"<tr style='background-color:#e1e1e1'>"+
