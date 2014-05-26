@@ -620,7 +620,7 @@ public class ActionServlet extends HttpServlet {
 			String result = "";
 			// Recipient's email ID needs to be mentioned.
 			//String to = "recruitment.iitb@gmail.com,vishwajeet@cse.iitb.ac.in,priya.ravi2910@gmail.com";
-			//String to = "raviprakashgiri@gmail.com,priya.ravi2910@gmail.com";
+			
 			String to = "recruitment.iitb@gmail.com,vishwajeet@cse.iitb.ac.in";
 			// Sender's email ID needs to be mentioned.
 			String from = mail_user;
