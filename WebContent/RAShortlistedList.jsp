@@ -40,6 +40,36 @@
     </style>
 <!-- To display calender in top pannel END-->
 
+ <!-- DATE TIME STARTS-->
+ <link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.16/themes/base/jquery-ui.css" type="text/css" media="all" />
+ <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js" type="text/javascript"></script>
+ <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.16/jquery-ui.min.js" type="text/javascript"></script> 
+<script type="text/javascript">
+$(function () {
+	//alert($('#joiningDate').val());
+$('#joiningDate').datepicker({ dateFormat: 'yy-mm-dd' ,minDate:'0'});
+//$('#leavingDate').datepicker({ dateFormat: 'yy-mm-dd' ,minDate:$('#joiningDate').val()});
+
+});
+</script>
+<script type="text/javascript">
+function datepick(){
+	if($('#joiningDate').val()!=""){
+		//alert("Yes");
+		$(function () {
+		$('#leavingDate').datepicker({ dateFormat: 'yy-mm-dd' ,minDate:$('#joiningDate').val()});
+		});
+	}
+}
+</script>
+<style>
+.ui-datepicker th { background-color: #CCCCFF; },.ui-datepicker{ font-size: 85%; }
+</style>
+                                <style type="text/css">
+                                                #tabs, #ui-datepicker-div, .ui-datepicker{ font-size: 85%; }
+                                </style>
+<!-- DATE TIME ENDS-->
+
 <!--popup div starts-->
 	<link href="popup/css/styles.css" rel="stylesheet" media="screen"  />
 
@@ -187,7 +217,43 @@ $("select").change(function(){
 </tr>
 
 
-
+<tr>
+	<td background="images/8.gif"></td>
+	
+	<td bgcolor="#FFFFFF"><table width="98%" border="0" align="center"
+			cellpadding="5" cellspacing="2"
+			style="border: 0px solid; border-color: #CCCCCC;">
+			
+			
+			
+			<tr>
+				<td align="left" class="tdbgwhite"></td>
+				<td align="left" class="tdbgwhite">From:</td>
+					
+				<td align="left" class="tdbgwhite"><input name="joiningDate" type="text" class="textbox" 
+														id="joiningDate"   readonly required></td>
+				<td align="left" class="tdbgwhite">To:</td>
+				<td align="left" class="tdbgwhite"><input name="leavingDate" type="text" class="textbox" 
+														id="leavingDate"   readonly required></td>
+				<td align="left" class="tdbgwhite"><input type="submit" value="Submit"></td>
+				<td align="left" class="tdbgwhite"></td>
+				<td align="left" class="tdbgwhite"></td>
+				<td align="left" class="tdbgwhite">
+					
+				</td>
+			</tr>
+			
+			
+			
+			
+		
+		</table></td>
+		
+	
+		
+		
+	<td background="images/4.gif"></td>
+</tr>
 
 	<td><img src="images/7.gif" alt="" width="16" height="17"></td>
 	
