@@ -127,6 +127,10 @@ $("select").change(function(){
 			cellpadding="5" cellspacing="2"
 			style="border: 0px solid; border-color: #CCCCCC;">
 			<tr align="left" bgcolor="#FFFFFF" class="table_head">
+			
+				<td width="2%" height="25" align="left"
+					style="border-bottom: 1px solid; border-color: #FF6600;">select</td>
+			
 				<td width="13%" height="25" align="left"
 					style="border-bottom: 1px solid; border-color: #FF6600;">Name</td>
 				
@@ -151,6 +155,7 @@ $("select").change(function(){
 					
 					for (int count = 0, cnt = 1; count < ReportLength; count++, cnt++) {%>
 			<tr>
+				<td align="left" class="tdbgwhite"><input type="checkbox" name="shortlist_check" id = "shortlist_check"></td>
 				<td align="left" class="tdbgwhite"><%=data[count][1] %></td>
 					
 				<td align="left" class="tdbgwhite"><%=data[count][2] %></td>
@@ -166,6 +171,8 @@ $("select").change(function(){
 					</select>
 				</td>
 			</tr>
+			
+			
 			<%} %>
 			<!-- <tr>
 				<td align="left" class="tdbgwhite"></td>
@@ -178,8 +185,12 @@ $("select").change(function(){
 		<%} %>
 	<td background="images/4.gif"></td>
 </tr>
-<tr>
+
+
+
+
 	<td><img src="images/7.gif" alt="" width="16" height="17"></td>
+	
 	<td background="images/6.gif"></td>
 	<td><img src="images/5.gif" alt="" width="15" height="17"></td>
 </tr>
