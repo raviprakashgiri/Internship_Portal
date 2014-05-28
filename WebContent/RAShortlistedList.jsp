@@ -192,8 +192,8 @@
 
                         for (int count = 0, cnt = 1; count < ReportLength; count++, cnt++) {%>
                 <tr>
-                    <td align="left" class="tdbgwhite"><input type="checkbox" name="shortlist_check" id = "shortlist_check"></td>
-                    <td align="left" class="tdbgwhite"><%=data[count][1] %></td>
+                    <td align="left" class="tdbgwhite"><input type="checkbox" name="id" value="<%=data[count][0]%>"><%=data[count][0]%><BR></td>
+                <td align="left" class="tdbgwhite"><%=data[count][1] %></td>
 
                     <td align="left" class="tdbgwhite"><%=data[count][2] %></td>
                     <td align="left" class="tdbgwhite"><%=data[count][3] %></td>
