@@ -47,7 +47,7 @@ public class ActionServlet extends HttpServlet {
      */
     public ActionServlet() {
         super();
-        // TODO Auto-generated constructor stubof
+        // TODO Auto-generated constructor stub
     }
 
 	/**
@@ -68,7 +68,6 @@ public class ActionServlet extends HttpServlet {
 		System.out.println(request.getParameter("WhatFor"));
 		MultipartFormDataRequest mrequest;
 		String whatFor = request.getParameter("WhatFor");
-		String appliedthrough="Direct";
 		if(whatFor==null){
 		
 		try {
@@ -87,21 +86,20 @@ public class ActionServlet extends HttpServlet {
 			Date leavingDateSql = Commons.stringToSqlDate(leavingDate);
 			String contactNumber = mrequest.getParameter("contactNumber");
 			String emailId = mrequest.getParameter("emailId");
-			 String collegeName = mrequest.getParameter("collegeName");
-			 int cgpa = Integer.parseInt(mrequest.getParameter("percentage"));
+			String collegeName = mrequest.getParameter("collegeName");
+			int cgpa = Integer.parseInt(mrequest.getParameter("percentage"));
 			
-			 int duration = Integer.parseInt(mrequest.getParameter("duration"));
-			 String stream = mrequest.getParameter("stream");
-			 int yearOfStudy = Integer.parseInt(mrequest.getParameter("yearOfStudy"));
-			 String availabilityForF2F = mrequest.getParameter("availabilityForF2F");
-			 String additionalInfo = mrequest.getParameter("additionalInformation");
-			 additionalInfo = ds.getQueryString(additionalInfo);
-			 String interests = mrequest.getParameter("interests");
-			 interests = ds.getQueryString(interests);
-			 String skills = mrequest.getParameter("skills");
-			 String persuing = mrequest.getParameter("persuing");
-			// String appliedthrough = mrequest.getParameter("appliedthrough");
-			// System.out.print("gfhgh="+appliedthrough);
+			int duration = Integer.parseInt(mrequest.getParameter("duration"));
+			String stream = mrequest.getParameter("stream");
+			int yearOfStudy = Integer.parseInt(mrequest.getParameter("yearOfStudy"));
+			String availabilityForF2F = mrequest.getParameter("availabilityForF2F");
+			String additionalInfo = mrequest.getParameter("additionalInformation");
+			additionalInfo = ds.getQueryString(additionalInfo);
+			String interests = mrequest.getParameter("interests");
+			interests = ds.getQueryString(interests);
+			String skills = mrequest.getParameter("skills");
+			String persuing = mrequest.getParameter("persuing");
+			 String appliedthrough=mrequest.getParameter("appliedthrough");
 			 String reasonForUnavailability = mrequest.getParameter("reasonForUnavailability");
 			 reasonForUnavailability = ds.getQueryString(reasonForUnavailability);
 			InternBean internBean = new InternBean();
@@ -127,14 +125,13 @@ public class ActionServlet extends HttpServlet {
 			internBean.setYearOfStudy(yearOfStudy);
 			internBean.setAdditionalInfo(additionalInfo);
 			internBean.setAvailabilityForF2F(availabilityForF2F);
-		    //internBean.setAppliedthrough(appliedthrough);           
+			internBean.setAppliedthrough(appliedthrough);
 			fileUploadDir = fileUploadDir.substring(65);					
 			fileUploadDir = "http://qassist.cse.iitb.ac.in/"+fileUploadDir;
 			System.out.println("fileUploadDir  "+fileUploadDir);
 			up.UploadingFile(mrequest, fileUploadDir, "resume",firstName+"_"+lastName+"_"+randomNumber );
 			internBean.setResume(fileUploadDir+"/"+firstName+"_"+lastName+"_"+randomNumber);
 			internBean.inernRegistration(internBean);
-			
 			String host = "imap.cse.iitb.ac.in";
 			String mail_smtp_port = "25";
 			String mail_user = "reviewsystem@cse.iitb.ac.in";
@@ -143,7 +140,7 @@ public class ActionServlet extends HttpServlet {
 			String result = "";
 			// Recipient's email ID needs to be mentioned.
 			//String to = "recruitment.iitb@gmail.com,vishwajeet@cse.iitb.ac.in";
-			String to = "recruitment.iitb@gmail.com,vishwajeet@cse.iitb.ac.in";
+			String to ="recruitment.iitb@gmail.com";
 			// Sender's email ID needs to be mentioned.
 			String from = mail_user;
 
@@ -152,6 +149,7 @@ public class ActionServlet extends HttpServlet {
 			String subject = ""+firstName+" "+lastName+""+" Applied For Internship- College - "+collegeName+""+" CGPA - "+cgpa+""+" Duration - "+duration+"";
 			//String description = request.getParameter("description");
 			skills = skills.replaceAll(",", "<br>");
+			
 			
 			String description = "<html>" +
 					"<body bgcolor='cyan'>"+
@@ -314,6 +312,7 @@ public class ActionServlet extends HttpServlet {
 				result = "Error: unable to send message....";
 			}
 			
+			
 			response.sendRedirect("InternRegistered.jsp");
 			
 		}
@@ -342,7 +341,7 @@ public class ActionServlet extends HttpServlet {
 			String aditionalInfo = mrequest.getParameter("additionalInformation");
 			String experienceInJava = mrequest.getParameter("experienceInJava");
 			String availabilityToF2F = mrequest.getParameter("availabilityToF2F");
-			
+			String to = "recruitment.iitb@gmail.com";
 			ExperiencedBean experiencedBean = new ExperiencedBean();
 			experiencedBean.setFirstName(firstName);
 			experiencedBean.setLastName(lastName);
@@ -385,13 +384,11 @@ public class ActionServlet extends HttpServlet {
 
 			String result = "";
 			// Recipient's email ID needs to be mentioned.
-			//String to = "recruitment.iitb@gmail.com,vishwajeet@cse.iitb.ac.in";
-			String to = "recruitment.iitb@gmail.com,vishwajeet@cse.iitb.ac.in";
+			//String to = "recruitment.iitb@gmail.com,vishwajeet@cse.iitb.ac.in,sravankumar.thiru@gmail.com";
 			// Sender's email ID needs to be mentioned.
 			String from = mail_user;
 
 			//String subject = request.getParameter("subject");
-			
 			
 			String subject = ""+firstName+" "+lastName+""+"  Applied For Job- Company - "+currentCompany+""+" CGPA - "+cgpa+""+" Years Of Experience - "+totalExperience+"";
 			//String description = request.getParameter("description");
@@ -571,7 +568,7 @@ public class ActionServlet extends HttpServlet {
 			 //int duration = Integer.parseInt(mrequest.getParameter("duration"));
 			 String stream = mrequest.getParameter("stream");
 			 int yearOfStudy = Integer.parseInt(mrequest.getParameter("yearOfStudy"));
-			// String appliedthrough=mrequest.getParameter("appliedthrough");
+			 String appliedthrough=mrequest.getParameter("appliedthrough");
 			 String availabilityForF2F = mrequest.getParameter("availabilityForF2F");
 			 String additionalInfo = mrequest.getParameter("additionalInformation");
 			 additionalInfo = ds.getQueryString(additionalInfo);
@@ -607,11 +604,11 @@ public class ActionServlet extends HttpServlet {
 			raBean.setYearOfStudy(yearOfStudy);
 			raBean.setAdditionalInfo(additionalInfo);
 			raBean.setAvailabilityForF2F(availabilityForF2F);
-			//raBean.setAppliedthrough(appliedthrough);
-			
+			raBean.setAppliedthrough(appliedthrough);
 			up.UploadingFile(mrequest, fileUploadDir, "resume",firstName+"_"+lastName+"_"+randomNumber );
 			raBean.setResume(fileUploadDir+"/"+firstName+"_"+lastName+"_"+randomNumber);
 			raBean.RARegistration(raBean);
+			
 			String host = "imap.cse.iitb.ac.in";
 			String mail_smtp_port = "25";
 			String mail_user = "reviewsystem@cse.iitb.ac.in";
@@ -620,12 +617,252 @@ public class ActionServlet extends HttpServlet {
 			String result = "";
 			// Recipient's email ID needs to be mentioned.
 			//String to = "recruitment.iitb@gmail.com,vishwajeet@cse.iitb.ac.in,priya.ravi2910@gmail.com";
-			
-			String to = "recruitment.iitb@gmail.com,vishwajeet@cse.iitb.ac.in";
+			String to = "recruitment.iitb@gmail.com";
 			// Sender's email ID needs to be mentioned.
 			String from = mail_user;
 
 			//String subject = request.getParameter("subject");
+			
+			String subject = ""+firstName+" "+lastName+""+" Applied For RA- College - "+collegeName+""+" CGPA -"+cgpa+"";
+			//String description = request.getParameter("description");
+			skills = skills.replaceAll(",", "<br>");
+			
+			String description = "<html>" +
+								"<body bgcolor='cyan'>"+
+								"<table cellspacing='0' style='width:100%'>"+
+								"<tr style='background-color:#e1e1e1'>"+
+								"<td style='font-weight:bold;padding:7px 9px;width:20%'>"+
+								"Applicant Name"+
+								"</td>"+
+								"<td style='padding:7px 9px 7px 0;width:80%'>"+
+								""+firstName+" "+lastName+""
+								+"</td>"
+								+"</tr>"
+								+"<tr>"+
+								"<td style='font-weight:bold;padding:7px 9px;width:20%'>"+
+								"Applied Through"+
+								"</td>"+
+								"<td style='padding:7px 9px 7px 0;width:80%'>"+
+								""+appliedthrough+""
+								+"</td>"
+								+"</tr>"
+								+"<tr style='background-color:#e1e1e1'>"+
+								"<td style='font-weight:bold;padding:7px 9px;width:20%'>"+
+								"Unversity/College:"+
+								"</td>"+
+								"<td style='padding:7px 9px 7px 0;width:80%'>"+
+								""+collegeName+""
+								+"</td>"
+								+"</tr>"
+								+"<tr>"+
+								"<td style='font-weight:bold;padding:7px 9px;width:20%'>"+
+								"CGPA"+
+								"</td>"+
+								"<td style='padding:7px 9px 7px 0;width:80%'>"+
+								""+cgpa+""
+								+"</td>"
+								+"</tr>"
+								+"<tr style='background-color:#e1e1e1'>"+
+								"<td style='font-weight:bold;padding:7px 9px;width:20%'>"+
+								"Contact Number:"+
+								"</td>"+
+								"<td style='padding:7px 9px 7px 0;width:80%'>"+
+								""+contactNumber+""
+								+"</td>"
+								+"</tr>"
+								+"<tr>"+
+								"<td style='font-weight:bold;padding:7px 9px;width:20%'>"+
+								"Email:"+
+								"</td>"+
+								"<td style='padding:7px 9px 7px 0;width:80%'>"+
+								""+emailId+""
+								+"</td>"
+								+"</tr>"
+								+"<tr style='background-color:#e1e1e1'>"+
+								"<td style='font-weight:bold;padding:7px 9px;width:20%'>"+
+								"Pursuing:"+
+								"</td>"+
+								"<td style='padding:7px 9px 7px 0;width:80%'>"+
+								""+persuing+""
+								+"</td>"
+								+"</tr>"
+								+"<tr>"+
+								"<td style='font-weight:bold;padding:7px 9px;width:20%'>"+
+								"Stream:"+
+								"</td>"+
+								"<td style='padding:7px 9px 7px 0;width:80%'>"+
+								""+stream+""
+								+"</td>"
+								+"</tr>"
+								+"<tr style='background-color:#e1e1e1'>"+
+								"<td style='font-weight:bold;padding:7px 9px;width:20%'>"+
+								"Current Year Of Study: "+
+								"</td>"+
+								"<td style='padding:7px 9px 7px 0;width:80%'>"+
+								""+yearOfStudy+""
+								+"</td>"
+								+"</tr>"
+								+"<tr>"+
+								"<td style='font-weight:bold;padding:7px 9px;width:20%'>"+
+								"Skills:"+
+								"</td>"+
+								"<td style='padding:7px 9px 7px 0;width:80%'>"+
+								""+skills+""
+								+"</td>"
+								+"</tr>"
+								+"<tr style='background-color:#e1e1e1'>"+
+								"<td style='font-weight:bold;padding:7px 9px;width:20%'>"+
+								"Availability for F2F Interview @IIT Bombay"+
+								"</td>"+
+								"<td style='padding:7px 9px 7px 0;width:80%'>"+
+								""+availabilityForF2F+""
+								+"</td>"
+								+"</tr>"
+								+"<tr>"+
+								"<td style='font-weight:bold;padding:7px 9px;width:20%'>"+
+								"Feasible Joining Date:"+
+								"</td>"+
+								"<td style='padding:7px 9px 7px 0;width:80%'>"+
+								""+joiningDate+""
+								+"</td>"
+								+"</tr>"
+								+"<tr style='background-color:#e1e1e1'>"+
+								"<td style='font-weight:bold;padding:7px 9px;width:20%'>"+
+								"Additional Information:"+
+								"</td>"+
+								"<td style='padding:7px 9px 7px 0;width:80%'>"+
+								""+additionalInfo+""
+								+"</td>"
+								+"</tr>"
+								+"</table>"
+								+"</body>"
+								+"</html>";
+			Properties properties = System.getProperties();
+
+			properties.put("mail.smtp.port", mail_smtp_port);
+			properties.put("mail.smtp.starttls.enable", "true");
+			properties.setProperty("mail.user", mail_user);
+			properties.setProperty("mail.password", mail_password);
+			properties.put("mail.smtp.auth", "true");
+			properties.put("mail.smtp.ssl.trust", host);
+
+			// Setup mail server
+			properties.setProperty("mail.smtp.host", host);
+
+			Session mailsession = Session.getInstance(properties,
+					new javax.mail.Authenticator() {
+						protected PasswordAuthentication getPasswordAuthentication() {
+							return new PasswordAuthentication("reviewsystem@cse.iitb.ac.in", "review123");
+						}
+					});
+
+			try {
+				// Create a default MimeMessage object.
+				MimeMessage message = new MimeMessage(mailsession);
+				// Set From: header field of the header.
+				message.setFrom(new InternetAddress(from));
+				// Set To: header field of the header.
+				message.addRecipients(Message.RecipientType.TO,
+						InternetAddress.parse(to));
+
+				message.setRecipients(Message.RecipientType.TO,
+						InternetAddress.parse(to));
+				// Set Subject: header field
+				message.setSubject(subject);
+				// Now set the actual message
+				message.setContent(description,"text/html");
+				// Send message
+				Transport transport = mailsession.getTransport("smtp");
+
+				Transport.send(message);
+
+				result = "Sent message successfully....";
+				
+				//code to redirect to correct page during automatic mails
+				
+			} catch (AddressException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			} catch (MessagingException mex) {
+				mex.printStackTrace();
+				result = "Error: unable to send message....";
+			}
+			
+			
+			response.sendRedirect("RARegistered.jsp");
+		
+			
+		}
+		
+else if(whatFor.equals("checkList")){
+			
+			String joiningDate = mrequest.getParameter("joiningDate");
+			Date joiningDateSql = Commons.stringToSqlDate(joiningDate);
+			//String leavingDate = mrequest.getParameter("leavingDate");
+			//Date leavingDateSql = Commons.stringToSqlDate(leavingDate);
+			String contactNumber = mrequest.getParameter("contactNumber");
+			String emailId = mrequest.getParameter("emailId");
+			 String collegeName = mrequest.getParameter("collegeName");
+			 int cgpa = Integer.parseInt(mrequest.getParameter("percentage"));
+			
+			 //int duration = Integer.parseInt(mrequest.getParameter("duration"));
+			 String stream = mrequest.getParameter("stream");
+			 int yearOfStudy = Integer.parseInt(mrequest.getParameter("yearOfStudy"));
+			 String appliedthrough=mrequest.getParameter("appliedthrough");
+			 String availabilityForF2F = mrequest.getParameter("availabilityForF2F");
+			 String additionalInfo = mrequest.getParameter("additionalInformation");
+			 additionalInfo = ds.getQueryString(additionalInfo);
+			 String interests = mrequest.getParameter("interests");
+			 interests = ds.getQueryString(interests);
+			 String skills = mrequest.getParameter("skills");
+			 String persuing = mrequest.getParameter("persuing");
+			 String reasonForUnavailability = mrequest.getParameter("reasonForUnavailability");
+			 reasonForUnavailability = ds.getQueryString(reasonForUnavailability);
+			RABean raBean = new RABean();
+			raBean.setFirstName(firstName);
+			raBean.setLastName(lastName);
+			raBean.setJoiningDate(joiningDateSql);
+			//internBean.setLeavingDate(leavingDateSql);
+			raBean.setContactNumber(contactNumber);
+			raBean.setEmailId(emailId);
+			raBean.setCollegeName(collegeName);
+			raBean.setCgpa(cgpa);
+			//internBean.setDuration(duration);
+			raBean.setPersuing(persuing);
+			//internBean.setJavaRating(javaRating);
+			//internBean.setAndroidRating(androidRating);
+			raBean.setSkills(skills);
+			raBean.setInterests(interests);
+			raBean.setStream(stream);
+			raBean.setReasonForUnavailability(reasonForUnavailability);
+			String fileUploadDir = "/home/hduser/ruralivrs/ProjectFiles/apache-tomcat-6.0.37/webapps/Downloads/internship/ra";
+			fileUploadDir = fileUploadDir.substring(65);					
+			fileUploadDir = "http://qassist.cse.iitb.ac.in/"+fileUploadDir;
+			System.out.println("fileUploadDir  "+fileUploadDir);
+			Random randomGenerator = new Random();
+			int randomNumber = randomGenerator.nextInt(100);
+			raBean.setYearOfStudy(yearOfStudy);
+			raBean.setAdditionalInfo(additionalInfo);
+			raBean.setAvailabilityForF2F(availabilityForF2F);
+			raBean.setAppliedthrough(appliedthrough);
+			up.UploadingFile(mrequest, fileUploadDir, "resume",firstName+"_"+lastName+"_"+randomNumber );
+			raBean.setResume(fileUploadDir+"/"+firstName+"_"+lastName+"_"+randomNumber);
+			raBean.RARegistration(raBean);
+			
+			String host = "imap.cse.iitb.ac.in";
+			String mail_smtp_port = "25";
+			String mail_user = "reviewsystem@cse.iitb.ac.in";
+			String mail_password = "review123";
+
+			String result = "";
+			// Recipient's email ID needs to be mentioned.
+			//String to = "recruitment.iitb@gmail.com,vishwajeet@cse.iitb.ac.in,priya.ravi2910@gmail.com";
+			String to = "recruitment.iitb@gmail.com";
+			// Sender's email ID needs to be mentioned.
+			String from = mail_user;
+
+			//String subject = request.getParameter("subject");
+			
 			String subject = ""+firstName+" "+lastName+""+" Applied For RA- College - "+collegeName+""+" CGPA -"+cgpa+"";
 			//String description = request.getParameter("description");
 			skills = skills.replaceAll(",", "<br>");
