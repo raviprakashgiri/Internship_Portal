@@ -817,8 +817,7 @@ else if(whatFor.equals("checkList")){
 			 String reasonForUnavailability = mrequest.getParameter("reasonForUnavailability");
 			 reasonForUnavailability = ds.getQueryString(reasonForUnavailability);
 			RABean raBean = new RABean();
-			raBean.setFirstName(firstName);
-			raBean.setLastName(lastName);
+			
 			raBean.setJoiningDate(joiningDateSql);
 			//internBean.setLeavingDate(leavingDateSql);
 			raBean.setContactNumber(contactNumber);
