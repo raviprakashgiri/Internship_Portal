@@ -17,6 +17,15 @@
     <link rel="stylesheet" href="css/topslide_css/slide.css" type="text/css"
         media="screen" />
 
+        <!-- new datepicker begin -->
+<link rel="stylesheet" href="css/datepicker1.css" type="text/css" />
+ <link rel="stylesheet" media="screen" type="text/css" href="css/layout.css" />
+ <script type="text/javascript" src="js/jquery.js"></script>
+ <script type="text/javascript" src="js/datepicker.js"></script>
+ <script type="text/javascript" src="js/eye.js"></script>
+ <script type="text/javascript" src="js/layout.js?ver=1.0.2"></script>
+<!--  new datepicker ends -->
+
     <!-- PNG FIX for IE6 -->
     <!-- http://24ways.org/2007/supersleight-transparent-png-in-ie6 -->
     <!--[if lte IE 6]>
