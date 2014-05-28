@@ -237,11 +237,9 @@
                     <td align="left" class="tdbgwhite"></td>
                     <td align="left" class="tdbgwhite">From:</td>
 
-                    <td align="left" class="tdbgwhite"><input name="joiningDate" type="text" class="textbox" 
-                                                            id="joiningDate"   readonly required></td>
-                    <td align="left" class="tdbgwhite">To:</td>
-                    <td align="left" class="tdbgwhite"><input name="leavingDate" type="text" class="textbox" onmouseover="datepick();" onblur="datepick();"
-                                                            id="leavingDate"   readonly required></td>
+                    <td align="left" class="tdbgwhite"><input class="outputDate" id="outputDate" value="06/14/2014" style="width: 101px; "/></td>
+                    <td align="left" class="tdbgwhite"><input name="submitButton" type="Submit" class="but"
+                                                        id="submitButton" value="Submit"></td>
                     <td align="left" class="tdbgwhite"><input type="submit" value="Submit"></td>
                     <td align="left" class="tdbgwhite"></td>
                     <td align="left" class="tdbgwhite"></td>
