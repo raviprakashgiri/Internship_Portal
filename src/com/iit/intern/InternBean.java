@@ -15,7 +15,7 @@ public class InternBean {
 	private String contactNumber;
 	private String emailId;
 	private String collegeName;
-	private int cgpa;
+	private float cgpa;
 	private Date joiningDate;
 	private Date leavingDate;
 	private int duration;
@@ -82,7 +82,7 @@ public class InternBean {
 	public void setYearOfStudy(int yearOfStudy) {
 		this.yearOfStudy = yearOfStudy;
 	}
-	public String getAvailabilityForF2F() {
+		public String getAvailabilityForF2F() {
 		return availabilityForF2F;
 	}
 	public void setAvailabilityForF2F(String availabilityForF2F) {
@@ -118,10 +118,10 @@ public class InternBean {
 	public void setCollegeName(String collegeName) {
 		this.collegeName = collegeName;
 	}
-	public int getCgpa() {
+	public float getCgpa() {
 		return cgpa;
 	}
-	public void setCgpa(int cgpa) {
+	public void setCgpa(float cgpa) {
 		this.cgpa = cgpa;
 	}
 	public Date getJoiningDate() {
@@ -161,7 +161,7 @@ public class InternBean {
 		String contactNumber = internBean.getContactNumber();
 		String emailId = internBean.getEmailId();
 		String collegeName = internBean.getCollegeName();
-		int cgpa = internBean.getCgpa();
+		float cgpa = internBean.getCgpa();
 		Date joiningDate = internBean.getJoiningDate();
 		Date leavingDate = internBean.getLeavingDate();
 		int duration = internBean.getDuration();
@@ -175,11 +175,12 @@ public class InternBean {
 		String availabilityForF2F = internBean.getAvailabilityForF2F();
 		String additionalInfo = internBean.getAdditionalInfo();
 		String skills = internBean.getSkills();
+	//	String appliedthrough = internBean.getAppliedthrough();
 		String reasonForUnavailability = internBean.getReasonForUnavailability();
 		
 		
-		String query = "insert into intern(first_name,last_name,contact_number,email_id,college_name,cgpa,feasible_joining_date,feasible_leaving_date,internship_duration,skills,resume_lacation,current_year,availabilityForF2F,additional_info,interests,stream,persuing,reasonForUnavailability,status)" +
-						"values('"+firstName+"','"+lastName+"','"+contactNumber+"','"+emailId+"','"+collegeName+"','"+cgpa+"','"+joiningDate+"','"+leavingDate+"','"+duration+"','"+skills+"','"+resume+"','"+yearOfStudy+"','"+availabilityForF2F+"','"+additionalInfo+"','"+interests+"','"+stream+"','"+persuing+"','"+reasonForUnavailability+"','Pending')";
+		String query = "insert into intern(first_name,last_name,contact_number,email_id,college_name,cgpa,feasible_joining_date,feasible_leaving_date,internship_duration,skills,resume_lacation,current_year,availabilityForF2F,additional_info,interests,stream,persuing,reasonForUnavailability,status,appliedthrough)" +
+						"values('"+firstName+"','"+lastName+"','"+contactNumber+"','"+emailId+"','"+collegeName+"','"+cgpa+"','"+joiningDate+"','"+leavingDate+"','"+duration+"','"+skills+"','"+resume+"','"+yearOfStudy+"','"+availabilityForF2F+"','"+additionalInfo+"','"+interests+"','"+stream+"','"+persuing+"','"+reasonForUnavailability+"','Pending','Direct')";
 		System.out.println(query);
 		try {
 			DataService.runQuery(query);
@@ -189,17 +190,11 @@ public class InternBean {
 		}
 		
 	}
-	
-	private String getAppliedthrough() {
-		// TODO Auto-generated method stub
-		
+	public String getAppliedthrough() {
 		return appliedthrough;
 	}
-	
 	public void setAppliedthrough(String appliedthrough) {
-		// TODO Auto-generated method stub
-		this.appliedthrough=appliedthrough;
-		
+		this.appliedthrough = appliedthrough;
 	}
 
 }
