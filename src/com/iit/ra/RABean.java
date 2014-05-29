@@ -15,7 +15,7 @@ public class RABean {
 	private String contactNumber;
 	private String emailId;
 	private String collegeName;
-	private int cgpa;
+	private float cgpa;
 	private Date joiningDate;
 	//private Date leavingDate;
 	//private int duration;
@@ -118,10 +118,10 @@ public class RABean {
 	public void setCollegeName(String collegeName) {
 		this.collegeName = collegeName;
 	}
-	public int getCgpa() {
+	public float getCgpa() {
 		return cgpa;
 	}
-	public void setCgpa(int cgpa) {
+	public void setCgpa(float cgpa) {
 		this.cgpa = cgpa;
 	}
 	public Date getJoiningDate() {
@@ -150,7 +150,7 @@ public class RABean {
 		String contactNumber = raBean.getContactNumber();
 		String emailId = raBean.getEmailId();
 		String collegeName = raBean.getCollegeName();
-		int cgpa = raBean.getCgpa();
+		float cgpa = raBean.getCgpa();
 		Date joiningDate = raBean.getJoiningDate();
 		//Date leavingDate = raBean.getLeavingDate();
 		//int duration = raBean.getDuration();
@@ -169,7 +169,7 @@ public class RABean {
 		
 		
 		String query = "insert into ra_applicant(first_name,last_name,contact_number,email_id,college_name,cgpa,feasible_joining_date,skills,resume_lacation,current_year,availabilityForF2F,additional_info,interests,stream,persuing,reasonForUnavailability,appliedthrough,status)" +
-						"values('"+firstName+"','"+lastName+"','"+contactNumber+"','"+emailId+"','"+collegeName+"','"+cgpa+"','"+joiningDate+"','"+skills+"','"+resume+"','"+yearOfStudy+"','"+availabilityForF2F+"','"+additionalInfo+"','"+interests+"','"+stream+"','"+persuing+"','"+reasonForUnavailability+"','"+appliedthrough+"','Pending')";
+						"values('"+firstName+"','"+lastName+"','"+contactNumber+"','"+emailId+"','"+collegeName+"','"+cgpa+"','"+joiningDate+"','"+skills+"','"+resume+"','"+yearOfStudy+"','"+availabilityForF2F+"','"+additionalInfo+"','"+interests+"','"+stream+"','"+persuing+"','"+reasonForUnavailability+"','Direct','Pending')";
 		System.out.println(query);
 		try {
 			DataService.runQuery(query);
@@ -179,13 +179,12 @@ public class RABean {
 		}
 		
 	}
-	public String getAppliedthrough() {
+	private String getAppliedthrough() {
 		// TODO Auto-generated method stub
-		
 		return appliedthrough;
 	}
-	public void setAppliedthrough(String appliedthrough)
-	{
+	public void setAppliedthrough(String appliedthrough) {
+		// TODO Auto-generated method stub
 		this.appliedthrough=appliedthrough;
 	}
 
