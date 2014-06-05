@@ -4,6 +4,8 @@
 
 package com.iit.controller;
 import java.sql.ResultSet;
+import java.util.*;
+import java.text.*;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
@@ -833,10 +835,13 @@ public class ActionServlet extends HttpServlet {
 				//System.out.println("tets");
 			    String[] fruits= request.getParameterValues("checkbox");	
 	            String inputDate = request.getParameter("inputDate");
-				//Date inputDateSql = Commons.stringToSqlDate(inputDate);
+	            SimpleDateFormat ft = 
+	            	      new SimpleDateFormat ("dd/MM/yyyy");
+	            
+				String inputDateSql =  ft.format(inputDate);;
 				System.out.println(inputDate);
 				String outputDate = request.getParameter("outputDate");
-				//Date outputDateSql = Commons.stringToSqlDate(outputDate);
+				String outputDateSql = ft.format(outputDate);;
 				System.out.println(outputDate);
 				int len=0;
 				len=fruits.length;
@@ -847,7 +852,7 @@ public class ActionServlet extends HttpServlet {
 					  int temp=Integer.parseInt(fruits[i]);
 					  String ra_id="",first_name="",last_name="";
 					  String query1 = "select ra_id,first_name,last_name from ra_applicant where ra_id='"+temp+"'";
-					  String query2 = "Update ra_shortlisted set date_from='"+inputDate+"', date_to='"+outputDate+"' where ra_id='"+temp+"'";
+					  String query2 = "Update ra_shortlisted set date_from='"+inputDateSql+"', date_to='"+outputDateSql+"' where ra_id='"+temp+"'";
 					  System.out.println(query1);
 					  System.out.println(query2);
 				try {
