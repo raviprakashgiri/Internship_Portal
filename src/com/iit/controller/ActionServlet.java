@@ -3,6 +3,7 @@
  */
 
 package com.iit.controller;
+import java.sql.ResultSet;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
@@ -21,6 +22,7 @@ import javax.mail.internet.AddressException;
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
 import javax.servlet.ServletException;
+import javax.servlet.ServletRequest;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -35,7 +37,8 @@ import com.iit.dbUtilities.DataService;
 import com.iit.experienced.ExperiencedBean;
 import com.iit.intern.InternBean;
 import com.iit.ra.RABean;
-
+//import com.mysql.jdbc.ResultSet;
+//import com.iit.checkbox.*;
 /**
  * Servlet implementation class ActionServlet
  */
@@ -47,7 +50,7 @@ public class ActionServlet extends HttpServlet {
      */
     public ActionServlet() {
         super();
-        // TODO Auto-generated constructor stubof
+        // TODO Auto-generated constructor stub
     }
 
 	/**
@@ -68,7 +71,6 @@ public class ActionServlet extends HttpServlet {
 		System.out.println(request.getParameter("WhatFor"));
 		MultipartFormDataRequest mrequest;
 		String whatFor = request.getParameter("WhatFor");
-		String appliedthrough="Direct";
 		if(whatFor==null){
 		
 		try {
@@ -87,21 +89,20 @@ public class ActionServlet extends HttpServlet {
 			Date leavingDateSql = Commons.stringToSqlDate(leavingDate);
 			String contactNumber = mrequest.getParameter("contactNumber");
 			String emailId = mrequest.getParameter("emailId");
-			 String collegeName = mrequest.getParameter("collegeName");
-			 float cgpa = Float.parseFloat(mrequest.getParameter("percentage"));
+			String collegeName = mrequest.getParameter("collegeName");
+			float cgpa = Float.parseFloat(mrequest.getParameter("percentage"));
 			
-			 int duration = Integer.parseInt(mrequest.getParameter("duration"));
-			 String stream = mrequest.getParameter("stream");
-			 int yearOfStudy = Integer.parseInt(mrequest.getParameter("yearOfStudy"));
-			 String availabilityForF2F = mrequest.getParameter("availabilityForF2F");
-			 String additionalInfo = mrequest.getParameter("additionalInformation");
-			 additionalInfo = ds.getQueryString(additionalInfo);
-			 String interests = mrequest.getParameter("interests");
-			 interests = ds.getQueryString(interests);
-			 String skills = mrequest.getParameter("skills");
-			 String persuing = mrequest.getParameter("persuing");
-			// String appliedthrough = mrequest.getParameter("appliedthrough");
-			// System.out.print("gfhgh="+appliedthrough);
+			int duration = Integer.parseInt(mrequest.getParameter("duration"));
+			String stream = mrequest.getParameter("stream");
+			int yearOfStudy = Integer.parseInt(mrequest.getParameter("yearOfStudy"));
+			String availabilityForF2F = mrequest.getParameter("availabilityForF2F");
+			String additionalInfo = mrequest.getParameter("additionalInformation");
+			additionalInfo = ds.getQueryString(additionalInfo);
+			String interests = mrequest.getParameter("interests");
+			interests = ds.getQueryString(interests);
+			String skills = mrequest.getParameter("skills");
+			String persuing = mrequest.getParameter("persuing");
+			 String appliedthrough=mrequest.getParameter("appliedthrough");
 			 String reasonForUnavailability = mrequest.getParameter("reasonForUnavailability");
 			 reasonForUnavailability = ds.getQueryString(reasonForUnavailability);
 			InternBean internBean = new InternBean();
@@ -127,14 +128,13 @@ public class ActionServlet extends HttpServlet {
 			internBean.setYearOfStudy(yearOfStudy);
 			internBean.setAdditionalInfo(additionalInfo);
 			internBean.setAvailabilityForF2F(availabilityForF2F);
-		    //internBean.setAppliedthrough(appliedthrough);           
+			internBean.setAppliedthrough(appliedthrough);
 			fileUploadDir = fileUploadDir.substring(65);					
 			fileUploadDir = "http://qassist.cse.iitb.ac.in"+fileUploadDir;
 			System.out.println("fileUploadDir  "+fileUploadDir);
 			up.UploadingFile(mrequest, fileUploadDir, "resume",firstName+"_"+lastName+"_"+randomNumber );
 			internBean.setResume(fileUploadDir+"/"+firstName+"_"+lastName+"_"+randomNumber);
 			internBean.inernRegistration(internBean);
-			
 			String host = "imap.cse.iitb.ac.in";
 			String mail_smtp_port = "25";
 			String mail_user = "reviewsystem@cse.iitb.ac.in";
@@ -143,7 +143,7 @@ public class ActionServlet extends HttpServlet {
 			String result = "";
 			// Recipient's email ID needs to be mentioned.
 			//String to = "recruitment.iitb@gmail.com,vishwajeet@cse.iitb.ac.in";
-			String to = "recruitment.iitb@gmail.com,vishwajeet@cse.iitb.ac.in";
+			String to = "recruitment.iitb@gmail.com";
 			// Sender's email ID needs to be mentioned.
 			String from = mail_user;
 
@@ -342,7 +342,7 @@ public class ActionServlet extends HttpServlet {
 			String aditionalInfo = mrequest.getParameter("additionalInformation");
 			String experienceInJava = mrequest.getParameter("experienceInJava");
 			String availabilityToF2F = mrequest.getParameter("availabilityToF2F");
-			
+			//String to = "recruitment.iitb@gmail.com";
 			ExperiencedBean experiencedBean = new ExperiencedBean();
 			experiencedBean.setFirstName(firstName);
 			experiencedBean.setLastName(lastName);
@@ -386,7 +386,7 @@ public class ActionServlet extends HttpServlet {
 			String result = "";
 			// Recipient's email ID needs to be mentioned.
 			//String to = "recruitment.iitb@gmail.com,vishwajeet@cse.iitb.ac.in";
-			String to = "recruitment.iitb@gmail.com,vishwajeet@cse.iitb.ac.in";
+			String to = "recruitment.iitb@gmail.com";
 			// Sender's email ID needs to be mentioned.
 			String from = mail_user;
 
@@ -571,7 +571,7 @@ public class ActionServlet extends HttpServlet {
 			 //int duration = Integer.parseInt(mrequest.getParameter("duration"));
 			 String stream = mrequest.getParameter("stream");
 			 int yearOfStudy = Integer.parseInt(mrequest.getParameter("yearOfStudy"));
-			// String appliedthrough=mrequest.getParameter("appliedthrough");
+			 String appliedthrough=mrequest.getParameter("appliedthrough");
 			 String availabilityForF2F = mrequest.getParameter("availabilityForF2F");
 			 String additionalInfo = mrequest.getParameter("additionalInformation");
 			 additionalInfo = ds.getQueryString(additionalInfo);
@@ -607,11 +607,11 @@ public class ActionServlet extends HttpServlet {
 			raBean.setYearOfStudy(yearOfStudy);
 			raBean.setAdditionalInfo(additionalInfo);
 			raBean.setAvailabilityForF2F(availabilityForF2F);
-			//raBean.setAppliedthrough(appliedthrough);
-			
+			raBean.setAppliedthrough(appliedthrough);
 			up.UploadingFile(mrequest, fileUploadDir, "resume",firstName+"_"+lastName+"_"+randomNumber );
 			raBean.setResume(fileUploadDir+"/"+firstName+"_"+lastName+"_"+randomNumber);
 			raBean.RARegistration(raBean);
+			
 			String host = "imap.cse.iitb.ac.in";
 			String mail_smtp_port = "25";
 			String mail_user = "reviewsystem@cse.iitb.ac.in";
@@ -620,7 +620,7 @@ public class ActionServlet extends HttpServlet {
 			String result = "";
 			// Recipient's email ID needs to be mentioned.
 			//String to = "recruitment.iitb@gmail.com,vishwajeet@cse.iitb.ac.in,priya.ravi2910@gmail.com";
-			String to = "recruitment.iitb@gmail.com,vishwajeet.iitb@cse.ac.in";
+			String to = "recruitment.iitb@gmail.com";
 			// Sender's email ID needs to be mentioned.
 			String from = mail_user;
 
@@ -795,6 +795,8 @@ public class ActionServlet extends HttpServlet {
 		
 			
 		}
+		
+		
 		
 		else if(whatFor.equals("login")){
 				String userName = mrequest.getParameter("userName");
