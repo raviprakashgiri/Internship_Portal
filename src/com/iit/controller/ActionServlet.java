@@ -797,7 +797,6 @@ public class ActionServlet extends HttpServlet {
 		}
 		
 		
-		
 		else if(whatFor.equals("login")){
 				String userName = mrequest.getParameter("userName");
 				String password = mrequest.getParameter("passWord");
@@ -826,6 +825,59 @@ public class ActionServlet extends HttpServlet {
 		}
 		
 		else{
+			
+			 if(whatFor.equals("shortlist")){
+				
+				System.out.println("Stavan !");
+				
+				//System.out.println("tets");
+			    String[] fruits= request.getParameterValues("checkbox");	
+	            String inputDate = request.getParameter("inputDate");
+				//Date inputDateSql = Commons.stringToSqlDate(inputDate);
+				System.out.println(inputDate);
+				String outputDate = request.getParameter("outputDate");
+				//Date outputDateSql = Commons.stringToSqlDate(outputDate);
+				System.out.println(outputDate);
+				int len=0;
+				len=fruits.length;
+				if(len!=0)
+				{
+				  for(int i=0; i<len; i++)
+					{
+					  int temp=Integer.parseInt(fruits[i]);
+					  String ra_id="",first_name="",last_name="";
+					  String query1 = "select ra_id,first_name,last_name from ra_applicant where ra_id='"+temp+"'";
+					  String query2 = "Update ra_shortlisted set date_from='"+inputDate+"', date_to='"+outputDate+"' where ra_id='"+temp+"'";
+					  System.out.println(query1);
+					  System.out.println(query2);
+				try {
+					ResultSet rsr = DataService.getResultSet(query1);
+					while(rsr.next()){
+						ra_id = rsr.getString(1);
+						first_name = rsr.getString(2);
+						last_name = rsr.getString(3);
+					}
+					DataService.runQuery("INSERT INTO ra_shortlisted(ra_id,first_name,last_name) VALUES('"+ra_id+"','"+first_name+"','"+last_name+"')");
+						DataService.runQuery(query2);
+						//result="updated successfully...";
+				} catch (SQLException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+					//result="error in updating...";
+				}
+			 	
+					}
+					
+				}
+				
+				response.sendRedirect("Shortlisted.jsp");
+			
+			
+		}
+		
+		
+			
+			
 			 if(whatFor.equals("shiftCandidate")){
 				
 				String candidate_id = request.getParameter("candidate_id");
