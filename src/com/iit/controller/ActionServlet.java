@@ -4,8 +4,6 @@
 
 package com.iit.controller;
 import java.sql.ResultSet;
-import java.util.*;
-import java.text.*;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
@@ -835,14 +833,17 @@ public class ActionServlet extends HttpServlet {
 				//System.out.println("tets");
 			    String[] fruits= request.getParameterValues("checkbox");	
 	            String inputDate = request.getParameter("inputDate");
-	            SimpleDateFormat ft = 
-	            	      new SimpleDateFormat ("dd/MM/yyyy");
-	            
-				String inputDateSql =  ft.format(inputDate);;
-				System.out.println(inputDate);
+	           // System.out.println(inputDate);
+	            inputDate = inputDate.replaceAll("/", "-");
+	            //System.out.println(inputDate);
+				Date inputDateSql = Commons.stringToSqlDate(inputDate);
+				//System.out.println(inputDateSql);
 				String outputDate = request.getParameter("outputDate");
-				String outputDateSql = ft.format(outputDate);;
-				System.out.println(outputDate);
+				//System.out.println(outputDate);
+				  outputDate = outputDate.replaceAll("/", "-");
+				 // System.out.println(outputDate);
+				Date outputDateSql = Commons.stringToSqlDate(outputDate);
+				//System.out.println(outputDateSql);
 				int len=0;
 				len=fruits.length;
 				if(len!=0)
@@ -877,12 +878,8 @@ public class ActionServlet extends HttpServlet {
 				
 				response.sendRedirect("Shortlisted.jsp");
 			
-			
 		}
 		
-		
-			
-			
 			 if(whatFor.equals("shiftCandidate")){
 				
 				String candidate_id = request.getParameter("candidate_id");
