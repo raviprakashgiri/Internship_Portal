@@ -1,10 +1,9 @@
 <%-- 
-    
-    
     Author     : Sravan Kumar
 --%>
 <%@page import="java.sql.ResultSet"%>
 <%@page import="com.iit.dbUtilities.DataService"%>
+<%@page import="com.iit.controller.ActionServlet"%>
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
@@ -59,6 +58,49 @@ This tutorial by bijusubhash.com.
 follow me on Twitter : http://www.twitter.com/bijusubhash
 -->
 <script type="text/javascript" src="popup/js/jquery.js" ></script>
+
+<script type="text/javascript">
+function input_value(){
+    var theArray = new Array();  
+    // var boxes = document.getElementsByTagName("input");  
+    var boxes = document.getElementsByName("checkbox");
+    for (var i=0;i<boxes.length;i++) {  
+       var box = boxes[i];  
+       if (box.type == "checkbox" && box.checked) {  
+          theArray[theArray.length] = box.value;  
+          alert(theArray[i]);
+       }
+    }
+    
+    
+}
+
+</script>
+
+
+<script type="text/javascript">
+function checkBoxValidation()
+{
+    boolean k=false;
+    for(var i=0; i < document.form1.id.length; i++)
+    {
+        if(document.form1.id[i].checked)
+         { k=true;
+        }
+    }
+    
+    if(k==false)
+    {
+        alert("Please Select Your favorite fruit");
+        return false;
+        }
+    else
+        {
+        alert("Click OK to display your favorite fruit list");
+        return true;
+        }
+</script>
+
 <script  type="text/javascript" language="javascript">
 $(document).ready(function(){
     $(".QTPopup").css('display','none')
@@ -98,7 +140,7 @@ $("select").change(function(){
     ResultSet rs = DataService.getResultSet(query);
     Object[][] data = DataService.getDataFromResultSet(rs);
 %>
-    <form name="form1" method="post" action="RAShortlistedList.jsp">
+    <form name="form1" action="ActionServlet" method="POST"  onsubmit="input_value();">
         <!-- <table width="100%" border="0" cellspacing="0" cellpadding="4">
             <tr>
                 <td width="41%"><script src="scripts/header.js"></script></td>
@@ -164,7 +206,7 @@ $("select").change(function(){
                     
                     for (int count = 0, cnt = 1; count < ReportLength; count++, cnt++) {%>
             <tr>
-                <td align="left" class="tdbgwhite"><input type="checkbox" name="id" value="<%=data[count][0]%>"><%=data[count][0]%><BR></td>
+                <td align="left" class="tdbgwhite"><input type="checkbox" name="checkbox" id="checkbox" value="<%=data[count][0]%>"><%=data[count][0]%><BR></td>
                 <td align="left" class="tdbgwhite"><%=data[count][1] %></td>
                     
                 <td align="left" class="tdbgwhite"><%=data[count][2] %></td>
@@ -180,7 +222,9 @@ $("select").change(function(){
                     </select>
                 </td>
             </tr>
-            <%} %>
+            <%} 
+                    
+            %>
             <!-- <tr>
                 <td align="left" class="tdbgwhite"></td>
                 </tr> -->
@@ -206,28 +250,25 @@ $("select").change(function(){
                     <td align="left" class="tdbgwhite"></td>
                     <td align="left" class="tdbgwhite">From:</td>
 
-                    <td align="left" class="tdbgwhite"><input class="inputDate" id="inputDate" value="06/14/2014" style="width: 101px; "/>
+                    <td align="left" class="tdbgwhite"><input class="inputDate" id="inputDate" name="inputDate" value="06/14/2014" style="width: 101px; "/>
                     </td>
                     <td align="left" class="tdbgwhite">To:</td>
-                    <td align="left" class="tdbgwhite"><input class="outputDate" id="outputDate" value="06/14/2014" style="width: 101px; "/></td>
+                    <td align="left" class="tdbgwhite"><input class="outputDate" id="outputDate" name="outputDate" value="06/14/2014" style="width: 101px; "/></td>
+                    <% /*String fruits[]= request.getParameterValues("id");
+                    for(int i=0;i<fruits.length;i++)
+                        System.out.println("fruits : "+i+" is "+fruits[i]);
+                    session.setAttribute("myObjectKey", fruits);*/
+                    %>
                     <td align="left" class="tdbgwhite"><input name="submitButton" type="Submit" class="but"
-                                                        id="submitButton" value="Submit"></td>
+                                                        id="submitButton" value="Submit" onClick="" >
+                                                        <input name="WhatFor" type="hidden" id="WhatFor" value="shortlist"></td>
                     <td align="left" class="tdbgwhite"></td>
                     <td align="left" class="tdbgwhite"></td>
                     <td align="left" class="tdbgwhite">
 
                     </td>
                 </tr>
-
-
-
-
-
             </table></td>
-
-
-
-
         <td background="images/4.gif"></td>
     </tr>
 
@@ -241,15 +282,6 @@ $("select").change(function(){
 </tr>
 </table>
 </form>
-    <%
 
-String select[] = request.getParameterValues("id"); 
-if (select != null && select.length != 0) {
-out.println("You have selected: ");
-for (int i = 0; i < select.length; i++) {
-out.println(select[i]); 
-}
-}
-%>
 </body>
 </html>
