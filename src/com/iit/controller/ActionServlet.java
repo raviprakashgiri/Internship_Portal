@@ -129,8 +129,8 @@ public class ActionServlet extends HttpServlet {
 			internBean.setAdditionalInfo(additionalInfo);
 			internBean.setAvailabilityForF2F(availabilityForF2F);
 			internBean.setAppliedthrough(appliedthrough);
-			fileUploadDir = fileUploadDir.substring(65);					
-			fileUploadDir = "http://qassist.cse.iitb.ac.in"+fileUploadDir;
+			//fileUploadDir = fileUploadDir.substring(65);					
+			//fileUploadDir = "http://qassist.cse.iitb.ac.in/"+fileUploadDir;
 			System.out.println("fileUploadDir  "+fileUploadDir);
 			up.UploadingFile(mrequest, fileUploadDir, "resume",firstName+"_"+lastName+"_"+randomNumber );
 			internBean.setResume(fileUploadDir+"/"+firstName+"_"+lastName+"_"+randomNumber);
@@ -369,8 +369,8 @@ public class ActionServlet extends HttpServlet {
 			
 			
 			String fileUploadDir = "/home/hduser/ruralivrs/ProjectFiles/apache-tomcat-6.0.37/webapps/Downloads/internship/jobapplicants";
-			fileUploadDir = fileUploadDir.substring(65);					
-			fileUploadDir = "http://qassist.cse.iitb.ac.in"+fileUploadDir;
+			//fileUploadDir = fileUploadDir.substring(65);					
+			//fileUploadDir = "http://qassist.cse.iitb.ac.in/"+fileUploadDir;
 			System.out.println("fileUploadDir  "+fileUploadDir);
 			Random randomGenerator = new Random();
 			int randomNumber = randomGenerator.nextInt(100);
@@ -599,8 +599,8 @@ public class ActionServlet extends HttpServlet {
 			raBean.setStream(stream);
 			raBean.setReasonForUnavailability(reasonForUnavailability);
 			String fileUploadDir = "/home/hduser/ruralivrs/ProjectFiles/apache-tomcat-6.0.37/webapps/Downloads/internship/ra";
-			fileUploadDir = fileUploadDir.substring(65);					
-			fileUploadDir = "http://qassist.cse.iitb.ac.in"+fileUploadDir;
+			//fileUploadDir = fileUploadDir.substring(65);					
+		//	fileUploadDir = "http://qassist.cse.iitb.ac.in/"+fileUploadDir;
 			System.out.println("fileUploadDir  "+fileUploadDir);
 			Random randomGenerator = new Random();
 			int randomNumber = randomGenerator.nextInt(100);
@@ -608,6 +608,7 @@ public class ActionServlet extends HttpServlet {
 			raBean.setAdditionalInfo(additionalInfo);
 			raBean.setAvailabilityForF2F(availabilityForF2F);
 			raBean.setAppliedthrough(appliedthrough);
+			System.out.println("testingg=="+fileUploadDir + firstName + lastName);
 			up.UploadingFile(mrequest, fileUploadDir, "resume",firstName+"_"+lastName+"_"+randomNumber );
 			raBean.setResume(fileUploadDir+"/"+firstName+"_"+lastName+"_"+randomNumber);
 			raBean.RARegistration(raBean);
