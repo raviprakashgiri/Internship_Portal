@@ -1,7 +1,7 @@
 <%-- 
     
     
-    Author     : Sravan Kumar
+    Author     : Priyanka & Ravi
 --%>
 <html>
 <head>
@@ -10,17 +10,17 @@
 
 <link rel="stylesheet" type="text/css" href="css/style.css">
 <!--top slide panel starts-->
-  	<link rel="stylesheet" href="css/topslide_css/style.css" type="text/css" media="screen" />
-  	<link rel="stylesheet" href="css/topslide_css/slide.css" type="text/css" media="screen" />
+    <link rel="stylesheet" href="css/topslide_css/style.css" type="text/css" media="screen" />
+    <link rel="stylesheet" href="css/topslide_css/slide.css" type="text/css" media="screen" />
 
     <!-- jQuery - the core -->
-	<script src="scripts/topslide_js/jquery-1.3.2.min.js" type="text/javascript"></script>
-	<!-- Sliding effect -->
-	<script src="scripts/topslide_js/slide.js" type="text/javascript"></script>
+  <script src="scripts/topslide_js/jquery-1.3.2.min.js" type="text/javascript"></script>
+  <!-- Sliding effect -->
+  <script src="scripts/topslide_js/slide.js" type="text/javascript"></script>
 
-	<!--top slide panel ends-->
-	<!-- To display calender in top pannel START-->	
-	<link rel="stylesheet" href="http://code.jquery.com/ui/1.9.2/themes/base/jquery-ui.css" />
+  <!--top slide panel ends-->
+  <!-- To display calender in top pannel START--> 
+  <link rel="stylesheet" href="http://code.jquery.com/ui/1.9.2/themes/base/jquery-ui.css" />
     <script src="http://code.jquery.com/jquery-1.8.3.js"></script>
     <script src="http://code.jquery.com/ui/1.9.2/jquery-ui.js"></script>
     <link rel="stylesheet" href="css/style.css" />
