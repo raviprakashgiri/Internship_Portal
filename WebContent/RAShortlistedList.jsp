@@ -1,5 +1,5 @@
 <%-- 
-    Author     : Sravan Kumar
+    Author     : Priyanka & Ravi
 --%>
 <%@page import="java.sql.ResultSet"%>
 <%@page import="com.iit.dbUtilities.DataService"%>
@@ -52,11 +52,7 @@
 <!--popup div starts-->
     <link href="popup/css/styles.css" rel="stylesheet" media="screen"  />
 
-<!--
-Simple Popup Box using CSS and jQuery.
-This tutorial by bijusubhash.com.
-follow me on Twitter : http://www.twitter.com/bijusubhash
--->
+
 <script type="text/javascript" src="popup/js/jquery.js" ></script>
 
 <script type="text/javascript">
@@ -68,7 +64,7 @@ function input_value(){
        var box = boxes[i];  
        if (box.type == "checkbox" && box.checked) {  
           theArray[theArray.length] = box.value;  
-          alert(theArray[i]);
+        //  alert(theArray[i]);
        }
     }
     
@@ -250,10 +246,10 @@ $("select").change(function(){
                     <td align="left" class="tdbgwhite"></td>
                     <td align="left" class="tdbgwhite">From:</td>
 
-                    <td align="left" class="tdbgwhite"><input class="inputDate" id="inputDate" name="inputDate" value="06/14/2014" style="width: 101px; "/>
+                    <td align="left" class="tdbgwhite"><input class="inputDate" id="inputDate" name="inputDate" value="2014-04-14" style="width: 101px; "/>
                     </td>
                     <td align="left" class="tdbgwhite">To:</td>
-                    <td align="left" class="tdbgwhite"><input class="outputDate" id="outputDate" name="outputDate" value="06/14/2014" style="width: 101px; "/></td>
+                    <td align="left" class="tdbgwhite"><input class="outputDate" id="outputDate" name="outputDate" value="2014-06-19" style="width: 101px; "/></td>
                     <% /*String fruits[]= request.getParameterValues("id");
                     for(int i=0;i<fruits.length;i++)
                         System.out.println("fruits : "+i+" is "+fruits[i]);
