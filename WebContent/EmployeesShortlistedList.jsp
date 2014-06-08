@@ -1,7 +1,7 @@
 <%-- 
     Document   : EmployeesShortlistedList
     
-    Author     : Sravan Kumar
+    Author     : Priyanka & Ravi
 --%>
 <%@page import="java.sql.ResultSet"%>
 <%@page import="com.iit.dbUtilities.DataService"%>
@@ -115,7 +115,7 @@ $("select").change(function(){
 <tr>
 	<td width="1%"><img src="images/1.gif" alt="" width="16"
 		height="57"></td>
-	<td width="98%" background="images/2.gif" class="bigtitlered"> Experienced applicants List		
+	<td width="98%" background="images/2.gif" class="bigtitlered"> Shortlisted Experienced List		
 	</td>
 	<td width="1%"><img src="images/3.gif" alt="" width="15"
 		height="57"></td>
@@ -162,9 +162,8 @@ $("select").change(function(){
 				<td align="left" class="tdbgwhite">
 					<select name="actions" id="actions" class="<%=data[count][0]%>">
 						<option value = "0" selected="selected">--Select Action--</option>
-						<option value="shortListEmployee">Short List</option>
-						<option value="deleteEmployee">Delete</option>
-					</select>
+						<option value="deleteEmployee">Delete</option> 
+				    	</select>
 				</td>
 			</tr>
 			<%} %>
