@@ -1,7 +1,3 @@
-/*
- * Author     : Sravan Kumar
- */
-
 package com.iit.commons;
 
 import java.io.IOException;
@@ -22,6 +18,10 @@ public class Upload {
 		String filename ="";
 		try {
 			//MultipartFormDataRequest mrequest = new MultipartFormDataRequest(request);
+			System.out.println("mrequest"+ mrequest);
+			System.out.println("dir locat"+ locationToUpload);
+			System.out.println("resume"+ fieldId);
+			System.out.println("file name"+ desiredFileName);
 			UploadBean upbean = new UploadBean();
 			upbean.setFolderstore(locationToUpload);
 			Hashtable files = mrequest.getFiles();
@@ -43,6 +43,7 @@ public class Upload {
 						    filename = desiredFileName + "." + strExtension;
 							
 						    file.setFileName(filename);
+						    System.out.println("ravi..file name"+ filename);
 						    upbean.setOverwrite(true);
 						    upbean.store(mrequest,fieldId);
 							
