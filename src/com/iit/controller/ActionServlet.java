@@ -1,5 +1,5 @@
 /*
- * Author     : Sravan Kumar
+ * Author     : Priyanka & Ravi
  */
 
 package com.iit.controller;
@@ -598,9 +598,11 @@ public class ActionServlet extends HttpServlet {
 			raBean.setInterests(interests);
 			raBean.setStream(stream);
 			raBean.setReasonForUnavailability(reasonForUnavailability);
+			String new_file = mrequest.getParameter("resume");
+			System.out.println(new_file);
 			String fileUploadDir = "/home/hduser/ruralivrs/ProjectFiles/apache-tomcat-6.0.37/webapps/Downloads/internship/ra";
-			//fileUploadDir = fileUploadDir.substring(65);					
-		//	fileUploadDir = "http://qassist.cse.iitb.ac.in/"+fileUploadDir;
+			fileUploadDir = fileUploadDir.substring(65);					
+			fileUploadDir = "http://qassist.cse.iitb.ac.in/"+fileUploadDir;
 			System.out.println("fileUploadDir  "+fileUploadDir);
 			Random randomGenerator = new Random();
 			int randomNumber = randomGenerator.nextInt(100);
@@ -609,8 +611,10 @@ public class ActionServlet extends HttpServlet {
 			raBean.setAvailabilityForF2F(availabilityForF2F);
 			raBean.setAppliedthrough(appliedthrough);
 			System.out.println("testingg=="+fileUploadDir + firstName + lastName);
-			up.UploadingFile(mrequest, fileUploadDir, "resume",firstName+"_"+lastName+"_"+randomNumber );
-			raBean.setResume(fileUploadDir+"/"+firstName+"_"+lastName+"_"+randomNumber);
+			String filePath=up.UploadingFile(mrequest, fileUploadDir, "resume",firstName+"_"+lastName+"_"+randomNumber );
+			System.out.println("filepath="+filePath);
+			//raBean.setResume(fileUploadDir+"/"+firstName+"_"+lastName+"_"+randomNumber);
+			raBean.setResume(filePath);
 			raBean.RARegistration(raBean);
 			
 			String host = "imap.cse.iitb.ac.in";
@@ -872,7 +876,6 @@ public class ActionServlet extends HttpServlet {
 					e.printStackTrace();
 					//result="error in updating...";
 				}
-			 	
 					}
 					
 				}
