@@ -1,7 +1,7 @@
 <%-- 
     Document   : EmployersList
     
-    Author     : Sravan Kumar
+    Author     : Priyanka & Ravi
 --%>
 
 <%@page import="java.sql.ResultSet"%>
@@ -116,7 +116,7 @@ $("select").change(function(){
 <tr>
 	<td width="1%"><img src="images/1.gif" alt="" width="16"
 		height="57"></td>
-	<td width="98%" background="images/2.gif" class="bigtitlered"> Job applicants List		
+	<td width="98%" background="images/2.gif" class="bigtitlered"> Experienced List		
 	</td>
 	<td width="1%"><img src="images/3.gif" alt="" width="15"
 		height="57"></td>
