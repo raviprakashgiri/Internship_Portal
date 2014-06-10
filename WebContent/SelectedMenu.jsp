@@ -35,14 +35,6 @@
     </style>
 <!-- To display calender in top pannel END-->
 
-<script type="text/javascript">
-function setValue(val){
-	alert("working");
-	document.getElementById("WhatFor").value=val;
-	document.getElementById("welcomeForm").submit();
-}
-</script>
-
 <script>
 function loadPage(pageName)
 {
@@ -78,14 +70,10 @@ xmlhttp.send();
 
 </style>
 
-<script type="text/javascript">
-function createSession(){}
-
-</script>
 </head>
 
 <body topmargin="0" leftmargin="0" marginwidth="0" marginheight="0">
-	<form name="ShortlistedMenu" id = "ShortlistedMenu" post="Shortlisted.jsp" onsubmit="createSession();">
+	<form name="form1" action="ActionServlet" method="POST">
 		<table width="100%" border="0" cellspacing="0" cellpadding="4">
 			<tr>
 				<td width="41%"><script src="scripts/header.js"></script></td>
@@ -107,7 +95,7 @@ function createSession(){}
           <td width="98%" background="images/2.gif" class="bigtitlered">Search | <span class="title">Action By - Jaideep Verma </span></td>
           <td width="1%"><img src="images/3.gif" alt="" width="15" height="57"></td>
         </tr> -->
-        <input type="hidden" name="WhatFor" id="WhatFor" value=""/>
+       <!--  <input type="hidden" name="WhatFor" id="WhatFor" value=""/>-->
 <tr>
 	<td width="1%"><img src="images/1.gif" alt="" width="16"
 		height="57"></td>
@@ -124,7 +112,11 @@ function createSession(){}
 	<td><input type="text" id="fromDate" name="fromDate"></td>
 	<td>Date To:</td>
 	<td><input type="text" id="toDate" name="toDate"></td>
-	<td><input type="submit" name="GO" id="submit" class="butgrey"></td>
+	<td><input name="submitButton" type="Submit" class="butgrey"
+														id="submitButton" value="Submit" onClick="" >
+	<input name="WhatFor" type="hidden" id="WhatFor" value="session_setting">
+	</td>
+	
 	</tr></table>
 	<table width="50%" border="0"
 			cellpadding="3" cellspacing="1"
@@ -133,7 +125,7 @@ function createSession(){}
 				<td width="20%" height="25" align="left">
 					<!-- <input type="button" name="button6" id="button5" value="Click here to view Interns List" class="but"
 								onclick="href='InternsList.jsp' target='content-iframe'" /> -->
-				<a class= "toplink" href = 'InternsList.jsp' target='content-iframe'>&bull; Interns List</a>
+				<a class= "toplink" href = 'SelectedIntern.jsp' target='content-iframe'>&bull; Interns List</a>
 				<br>
 				
 				</td>
@@ -142,7 +134,7 @@ function createSession(){}
 				 	<!-- <input type="button" size="50"
 								name="button6" id="button5" value="Click here to view Experienced List" class="butgrey"
 								onclick="loadPage('EmployersList.jsp');" /> -->
-					<a class= "toplink" href = 'EmployersList.jsp' target='content-iframe'>&bull; Experienced List</a>
+					<a class= "toplink" href = 'SelectedJob.jsp' target='content-iframe'>&bull; Experienced List</a>
 					<br>
 				
 				</td> 
@@ -150,7 +142,7 @@ function createSession(){}
 				<!-- <input type="button"
 								name="button6" id="button5" value="Click here to view RA Applicants" class="but"
 								onclick="loadPage('RAapplicantsList.jsp');" /> -->
-					<a class= "toplink" href = 'Shortlisted.jsp' target='content-iframe'>&bull; RA List</a>
+					<a class= "toplink" href = 'SelectedRA.jsp' target='content-iframe'>&bull; RA List</a>
 					<br>
 				
 				</td>
