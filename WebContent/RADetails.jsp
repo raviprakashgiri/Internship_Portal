@@ -1,7 +1,7 @@
 <%-- 
     
     
-    Author     : Sravan Kumar
+    Author     : Ravi & Priyanka
 --%>
 
 <%@page import="com.iit.dbUtilities.DataService"%>
@@ -205,8 +205,10 @@ function unavailability(val){
 		ResultSet rs = DataService.getResultSet(query);
 		Object data[][] = DataService.getDataFromResultSet(rs);
 		String skills = data[0][7].toString();
+		String re=data[0][8].toString();
 		skills = skills.replaceAll(",", "<br>");
 		System.out.println(skills);
+		System.out.println("Ravi!" +re );
 	%>
 			<form action="ActionServlet" method="POST" enctype="multipart/form-data" name="form" onsubmit="return validate();">
 				
@@ -308,7 +310,7 @@ function unavailability(val){
 												</td>
 												<td class="text">
 													<!-- <input type="file" name="resume" id="resume" required> -->
-													<a href="<%=data[0][8]%>">Download</a>
+													<a href="http://qassist.cse.iitb.ac.in/<%=data[0][8]%>"  target="_blank" title="Right Click Save Link as">Download</a>
 													
 												</td>
 											</tr>
