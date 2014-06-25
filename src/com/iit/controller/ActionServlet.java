@@ -26,6 +26,7 @@ import javax.servlet.ServletRequest;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import javazoom.upload.MultipartFormDataRequest;
 import javazoom.upload.UploadException;
@@ -132,10 +133,12 @@ public class ActionServlet extends HttpServlet {
 			//fileUploadDir = fileUploadDir.substring(65);					
 			//fileUploadDir = "http://qassist.cse.iitb.ac.in/"+fileUploadDir;
 			System.out.println("fileUploadDir  "+fileUploadDir);
-			up.UploadingFile(mrequest, fileUploadDir, "resume",firstName+"_"+lastName+"_"+randomNumber );
-			internBean.setResume(fileUploadDir+"/"+firstName+"_"+lastName+"_"+randomNumber);
+			String FILEPATH= up.UploadingFile(mrequest, fileUploadDir, "resume",firstName+"_"+lastName+"_"+randomNumber );
+			FILEPATH = FILEPATH.substring(65);
+			System.out.println("Ravi..rpg..."+ FILEPATH);
+			internBean.setResume(FILEPATH);
 			internBean.inernRegistration(internBean);
-			String host = "imap.cse.iitb.ac.in";
+			String host = "10.105.1.1";
 			String mail_smtp_port = "25";
 			String mail_user = "reviewsystem@cse.iitb.ac.in";
 			String mail_password = "review123";
@@ -374,8 +377,11 @@ public class ActionServlet extends HttpServlet {
 			System.out.println("fileUploadDir  "+fileUploadDir);
 			Random randomGenerator = new Random();
 			int randomNumber = randomGenerator.nextInt(100);
-			up.UploadingFile(mrequest, fileUploadDir, "resume",firstName+"_"+lastName+"_"+randomNumber );
-			experiencedBean.setResume(fileUploadDir+"/"+firstName+"_"+lastName+"_"+randomNumber);
+			String FILEPATH= up.UploadingFile(mrequest, fileUploadDir, "resume",firstName+"_"+lastName+"_"+randomNumber );
+			//String FILEPATH= up.UploadingFile(mrequest, fileUploadDir, "resume",firstName+"_"+lastName+"_"+randomNumber );
+			FILEPATH = FILEPATH.substring(65);
+			System.out.println("Ravi..rpg..."+ FILEPATH);
+			experiencedBean.setResume(FILEPATH);
 			experiencedBean.registerEmployee(experiencedBean);
 			
 			String host = "imap.cse.iitb.ac.in";
@@ -598,11 +604,9 @@ public class ActionServlet extends HttpServlet {
 			raBean.setInterests(interests);
 			raBean.setStream(stream);
 			raBean.setReasonForUnavailability(reasonForUnavailability);
-			String new_file = mrequest.getParameter("resume");
-			System.out.println(new_file);
 			String fileUploadDir = "/home/hduser/ruralivrs/ProjectFiles/apache-tomcat-6.0.37/webapps/Downloads/internship/ra";
-			fileUploadDir = fileUploadDir.substring(65);					
-			fileUploadDir = "http://qassist.cse.iitb.ac.in/"+fileUploadDir;
+			//fileUploadDir = fileUploadDir.substring(65);					
+		//	fileUploadDir = "http://qassist.cse.iitb.ac.in/"+fileUploadDir;
 			System.out.println("fileUploadDir  "+fileUploadDir);
 			Random randomGenerator = new Random();
 			int randomNumber = randomGenerator.nextInt(100);
@@ -610,11 +614,13 @@ public class ActionServlet extends HttpServlet {
 			raBean.setAdditionalInfo(additionalInfo);
 			raBean.setAvailabilityForF2F(availabilityForF2F);
 			raBean.setAppliedthrough(appliedthrough);
-			System.out.println("testingg=="+fileUploadDir + firstName + lastName);
-			String filePath=up.UploadingFile(mrequest, fileUploadDir, "resume",firstName+"_"+lastName+"_"+randomNumber );
-			System.out.println("filepath="+filePath);
-			//raBean.setResume(fileUploadDir+"/"+firstName+"_"+lastName+"_"+randomNumber);
-			raBean.setResume(filePath);
+			//System.out.println("testingg=="+fileUploadDir + firstName + lastName);
+			String FILEPATH= up.UploadingFile(mrequest, fileUploadDir, "resume",firstName+"_"+lastName+"_"+randomNumber );
+			//String FILEPATH= up.UploadingFile(mrequest, fileUploadDir, "resume",firstName+"_"+lastName+"_"+randomNumber );
+			FILEPATH = FILEPATH.substring(65);
+			System.out.println("Ravi..rpg..."+ FILEPATH);
+			//internBean.setResume(FILEPATH);
+			raBean.setResume(FILEPATH);
 			raBean.RARegistration(raBean);
 			
 			String host = "imap.cse.iitb.ac.in";
@@ -802,6 +808,8 @@ public class ActionServlet extends HttpServlet {
 		}
 		
 		
+		
+		
 		else if(whatFor.equals("login")){
 				String userName = mrequest.getParameter("userName");
 				String password = mrequest.getParameter("passWord");
@@ -833,7 +841,7 @@ public class ActionServlet extends HttpServlet {
 			
 			 if(whatFor.equals("shortlist")){
 				
-				System.out.println("Stavan !");
+				System.out.println("Ravi !");
 				
 				//System.out.println("tets");
 			    String[] fruits= request.getParameterValues("checkbox");	
@@ -843,11 +851,11 @@ public class ActionServlet extends HttpServlet {
 	            //System.out.println(inputDate);
 				Date inputDateSql = Commons.stringToSqlDate(inputDate);
 				//System.out.println(inputDateSql);
-				String outputDate = request.getParameter("outputDate");
+				//String outputDate = request.getParameter("outputDate");
 				//System.out.println(outputDate);
-				  outputDate = outputDate.replaceAll("/", "-");
+				 // outputDate = outputDate.replaceAll("/", "-");
 				 // System.out.println(outputDate);
-				Date outputDateSql = Commons.stringToSqlDate(outputDate);
+			//	Date outputDateSql = Commons.stringToSqlDate(outputDate);
 				//System.out.println(outputDateSql);
 				int len=0;
 				len=fruits.length;
@@ -858,7 +866,7 @@ public class ActionServlet extends HttpServlet {
 					  int temp=Integer.parseInt(fruits[i]);
 					  String ra_id="",first_name="",last_name="";
 					  String query1 = "select ra_id,first_name,last_name from ra_applicant where ra_id='"+temp+"'";
-					  String query2 = "Update ra_shortlisted set date_from='"+inputDateSql+"', date_to='"+outputDateSql+"' where ra_id='"+temp+"'";
+					  String query2 = "Update ra_shortlisted set date_from='"+inputDateSql+"' where ra_id='"+temp+"'";
 					  System.out.println(query1);
 					  System.out.println(query2);
 				try {
@@ -876,13 +884,139 @@ public class ActionServlet extends HttpServlet {
 					e.printStackTrace();
 					//result="error in updating...";
 				}
+			 	
 					}
 					
 				}
 				
-				response.sendRedirect("Shortlisted.jsp");
+				response.sendRedirect("ShortlistedMessage.jsp");
 			
 		}
+			 
+			 if(whatFor.equals("shortlistIntern")){
+					
+					System.out.println("Ravi !");
+					
+					//System.out.println("tets");
+				    String[] fruits= request.getParameterValues("checkbox");	
+		            String inputDate = request.getParameter("inputDate");
+		           // System.out.println(inputDate);
+		            inputDate = inputDate.replaceAll("/", "-");
+		            //System.out.println(inputDate);
+					Date inputDateSql = Commons.stringToSqlDate(inputDate);
+					//System.out.println(inputDateSql);
+					//String outputDate = request.getParameter("outputDate");
+					//System.out.println(outputDate);
+					//  outputDate = outputDate.replaceAll("/", "-");
+					 // System.out.println(outputDate);
+					//Date outputDateSql = Commons.stringToSqlDate(outputDate);
+					//System.out.println(outputDateSql);
+					int len=0;
+					len=fruits.length;
+					if(len!=0)
+					{
+					  for(int i=0; i<len; i++)
+						{
+						  int temp=Integer.parseInt(fruits[i]);
+						  String intern_id="",first_name="",last_name="";
+						  String query1 = "select intern_id,first_name,last_name from intern where intern_id='"+temp+"'";
+						  String query2 = "Update intern_shortlisted set date_from='"+inputDateSql+"' where intern_id='"+temp+"'";
+						  System.out.println(query1);
+						  System.out.println(query2);
+					try {
+						ResultSet rsr = DataService.getResultSet(query1);
+						while(rsr.next()){
+							intern_id = rsr.getString(1);
+							first_name = rsr.getString(2);
+							last_name = rsr.getString(3);
+						}
+						DataService.runQuery("INSERT INTO intern_shortlisted(intern_id,first_name,last_name) VALUES('"+intern_id+"','"+first_name+"','"+last_name+"')");
+							DataService.runQuery(query2);
+							//result="updated successfully...";
+					} catch (SQLException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+						//result="error in updating...";
+					}
+				 	
+						}
+						
+					}
+					
+					response.sendRedirect("ShortlistedMessage.jsp");
+				
+			}
+			 
+			 if(whatFor.equals("shortlistJob")){
+					
+					System.out.println("Ravi !");
+					
+					//System.out.println("tets");
+				    String[] fruits= request.getParameterValues("checkbox");	
+		            String inputDate = request.getParameter("inputDate");
+		           // System.out.println(inputDate);
+		            inputDate = inputDate.replaceAll("/", "-");
+		            //System.out.println(inputDate);
+					Date inputDateSql = Commons.stringToSqlDate(inputDate);
+					//System.out.println(inputDateSql);
+					//String outputDate = request.getParameter("outputDate");
+					//System.out.println(outputDate);
+					//  outputDate = outputDate.replaceAll("/", "-");
+					 // System.out.println(outputDate);
+					//Date outputDateSql = Commons.stringToSqlDate(outputDate);
+					//System.out.println(outputDateSql);
+					int len=0;
+					len=fruits.length;
+					if(len!=0)
+					{
+					  for(int i=0; i<len; i++)
+						{
+						  int temp=Integer.parseInt(fruits[i]);
+						  String job_applicant_id="",first_name="",last_name="";
+						  String query1 = "select job_applicant_id,first_name,last_name from job_applicant where job_applicant_id='"+temp+"'";
+						  String query2 = "Update job_shortlisted set date_from='"+inputDateSql+"' where job_applicant_id='"+temp+"'";
+						  System.out.println(query1);
+						  System.out.println(query2);
+					try {
+						ResultSet rsr = DataService.getResultSet(query1);
+						while(rsr.next()){
+							job_applicant_id = rsr.getString(1);
+							first_name = rsr.getString(2);
+							last_name = rsr.getString(3);
+						}
+						DataService.runQuery("INSERT INTO job_shortlisted(job_applicant_id,first_name,last_name) VALUES('"+job_applicant_id+"','"+first_name+"','"+last_name+"')");
+							DataService.runQuery(query2);
+							//result="updated successfully...";
+					} catch (SQLException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+						//result="error in updating...";
+					}
+				 	
+						}
+						
+					}
+					
+					response.sendRedirect("ShortlistedMessage.jsp");
+				
+			}
+			 
+			 if(whatFor.equals("session_setting")){
+					String fd="";
+					String td="";
+					fd=request.getParameter("fromDate");
+					System.out.println("inside action 1st line"+ fd);
+					System.out.println("inside action 2st line"+ td);
+					td=request.getParameter("toDate");
+					HttpSession session = request.getSession();
+					session.setAttribute("fromdate", fd);
+		            session.setAttribute("todate", td);
+		            System.out.println("to date  "+td );
+		            System.out.println("from date  "+fd );
+					
+					response.sendRedirect("SelectedMenu.jsp");
+					
+				}
 		
 			 if(whatFor.equals("shiftCandidate")){
 				
