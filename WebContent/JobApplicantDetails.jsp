@@ -1,7 +1,7 @@
 <%-- 
     
     
-    Author     : Sravan Kumar
+    Author     : Ravi & Priyanka
 --%>
 
 <%@page import="com.iit.dbUtilities.DataService"%>
@@ -300,7 +300,7 @@ function validate(){
 													 Resume
 												</td>
 												<td class="text">
-													<a href="<%=data[0][21] %>">Download</a>
+													<a href="http://qassist.cse.iitb.ac.in/<%=data[0][21] %>"  target="_blank" title="Right Click Save Link as">Download</a>
 													
 												</td>
 											</tr>
