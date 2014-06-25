@@ -84,8 +84,17 @@ $("select").change(function(){
 
 <body topmargin="0" leftmargin="0" marginwidth="0" marginheight="0">
 <%
-	java.sql.Date dd=2014-04-30;
-	String query = "select ra_id,first_name,last_name,date_from from ra_shortlisted where date_from=56";
+	//java.sql.Date dd=2014-04-30;
+	String fromDate=(String)session.getAttribute("fromdate");
+	//fromDate=request.getParameter(fromDate);
+	String toDate=(String)session.getAttribute("todate");
+	//toDate=request.getParameter(toDate);
+	System.out.println("date from in shortlisted"+ fromDate);
+	System.out.println("date to shortlisted"+toDate);
+	//fromDate=request.getParameter(fromDate);
+	//toDate=request.getParameter(toDate);
+	
+	String query = "select ra_id,first_name,last_name,date_from from ra_shortlisted where date_from between '"+fromDate+"' and '"+toDate+"'";
 	ResultSet rs = DataService.getResultSet(query);
 	Object[][] data = DataService.getDataFromResultSet(rs);
 	System.out.println("It's ravi!!"+data[0][3]);
@@ -119,6 +128,7 @@ $("select").change(function(){
 		height="57"></td>
 	<td width="98%" background="images/2.gif" class="bigtitlered"> Selected RA List		
 	</td>
+	
 	<td width="1%"><img src="images/3.gif" alt="" width="15"
 		height="57"></td>
 </tr>
