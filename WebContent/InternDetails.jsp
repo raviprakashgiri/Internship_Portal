@@ -1,7 +1,7 @@
 <%-- 
     
     
-    Author     :Priyanka & Ravi
+    Author     :Ravi & Priyanka
 --%>
 
 <%@page import="java.sql.ResultSet"%>
@@ -306,7 +306,7 @@ function unavailability(val){
 													 <br>Resume
 												</td>
 												<td class="text">
-													<a href="<%= data[0][10]%>">Resume</a>
+													<a href="http://qassist.cse.iitb.ac.in/<%= data[0][10]%>"  target="_blank" title="Right Click Save Link as">Resume</a>
 													
 												</td>
 											</tr>
