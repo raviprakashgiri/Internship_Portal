@@ -1,4 +1,4 @@
-Internship_Portal
+Recruitment Portal
 =================
 
 This project is based on Advance Java ans uses java server pages ( JSP ) and Servlet technology.
