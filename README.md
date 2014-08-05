@@ -16,4 +16,6 @@ The directory is divided into three parts:
 	example RaApplicant list.jsp, Raregistration.jsp, and similary for all three category.
 
 	# Build contents all the codes running behind the pages.
+
+It has been used for recruiting people for IITB
 	
