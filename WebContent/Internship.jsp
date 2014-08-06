@@ -1,7 +1,7 @@
 <%-- 
     
     
-    Author     : Sravan Kumar
+    Author     : Ravi Prakash giri
 --%>
 
 <html>
@@ -414,6 +414,13 @@ function unavailability(val){
 															<option value="4">4</option>
 															<option value="5">5</option>
 													</select>
+													<tr>
+												<td align="right" nowrap class="text">
+													Interests
+												</td>
+												<td width="38%" class="tableborder"
+													style="border-right:1px solid; border-color:#CCCCCC;"><textarea name="interests" cols="34" rows="3" class="textarea" id="interests" maxlength="500"></textarea>
+													
 													<!-- <script>
 													for (i = new Date().getFullYear(); i > 1999; i--)
 													{
@@ -440,11 +447,10 @@ function unavailability(val){
 														class="textarea" id="additionalInformation" maxlength="500" required></textarea>
 												</td>
 												<td align="right" valign="top" nowrap class="text">
-													 Interests
+													
 												</td>
 												<td width="30%">
-													<textarea name="interests" cols="34" rows="3"
-														class="textarea" id="interests" maxlength="500"></textarea>
+													
 												</td>
 											</tr>
 											
