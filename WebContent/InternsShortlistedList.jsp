@@ -1,7 +1,7 @@
 <%-- 
     
     
-    Author     : Sravan Kumar
+    Author     : Ravi Prakash Giri
 --%>
 <%@page import="java.sql.ResultSet"%>
 <%@page import="com.iit.dbUtilities.DataService"%>
@@ -48,6 +48,16 @@ Simple Popup Box using CSS and jQuery.
 This tutorial by bijusubhash.com.
 follow me on Twitter : http://www.twitter.com/bijusubhash
 -->
+
+<!-- new datepicker begin -->
+<link rel="stylesheet" href="css/datepicker1.css" type="text/css" />
+ <link rel="stylesheet" media="screen" type="text/css" href="css/layout.css" />
+ <script type="text/javascript" src="js/jquery.js"></script>
+ <script type="text/javascript" src="js/datepicker.js"></script>
+ <script type="text/javascript" src="js/eye.js"></script>
+ <script type="text/javascript" src="js/layout.js?ver=1.0.2"></script>
+<!--  new datepicker ends -->
+
 <script type="text/javascript" src="popup/js/jquery.js" ></script>
 <script  type="text/javascript" language="javascript">
 $(document).ready(function(){
@@ -89,7 +99,7 @@ $("select").change(function(){
 	ResultSet rs = DataService.getResultSet(query);
 	Object[][] data = DataService.getDataFromResultSet(rs);
 %>
-	<form name="form1" method="post" action="">
+	<form name="form1" method="post" action="ActionServlet">
 		<!-- <table width="100%" border="0" cellspacing="0" cellpadding="4">
 			<tr>
 				<td width="41%"><script src="scripts/header.js"></script></td>
@@ -116,7 +126,7 @@ $("select").change(function(){
 <tr>
 	<td width="1%"><img src="images/1.gif" alt="" width="16"
 		height="57"></td>
-	<td width="98%" background="images/2.gif" class="bigtitlered"> Interns ShortListed List		
+	<td width="98%" background="images/2.gif" class="bigtitlered"> ShortListed Interns List		
 	</td>
 	<td width="1%"><img src="images/3.gif" alt="" width="15"
 		height="57"></td>
@@ -128,6 +138,8 @@ $("select").change(function(){
 			cellpadding="5" cellspacing="2"
 			style="border: 0px solid; border-color: #CCCCCC;">
 			<tr align="left" bgcolor="#FFFFFF" class="table_head">
+				<td width="2%" height="25" align="left"
+					style="border-bottom: 1px solid; border-color: #FF6600;"></td>
 				<td width="13%" height="25" align="left"
 					style="border-bottom: 1px solid; border-color: #FF6600;">Name</td>
 				
@@ -152,6 +164,7 @@ $("select").change(function(){
 					
 					for (int count = 0, cnt = 1; count < ReportLength; count++, cnt++) {%>
 			<tr>
+				<td align="left" class="tdbgwhite"><input type="checkbox" name="checkbox" id="checkbox" value="<%=data[count][0]%>"><BR></td>
 				<td align="left" class="tdbgwhite"><%=data[count][1] %></td>
 					
 				<td align="left" class="tdbgwhite"><%=data[count][2] %></td>
@@ -179,6 +192,42 @@ $("select").change(function(){
 		<%} %>
 	<td background="images/4.gif"></td>
 </tr>
+
+<tr>
+        <td background="images/8.gif"></td>
+
+        <td bgcolor="#FFFFFF"><table width="98%" border="0" align="center"
+                cellpadding="5" cellspacing="2"
+                style="border: 0px solid; border-color: #CCCCCC;">
+
+
+
+                <tr>
+                    <td align="left" class="tdbgwhite"></td>
+                    <td align="left" class="tdbgwhite">Schedule Date</td>
+
+                    <td align="left" class="tdbgwhite"><input class="inputDate" id="inputDate" name="inputDate" value="2014-04-14" style="width: 101px; "/>
+					</td>
+                    <td align="left" class="tdbgwhite"></td>
+                <!--  <td align="left" class="tdbgwhite"><input class="outputDate" id="outputDate" name="outputDate" value="2014-06-19" style="width: 101px; "/></td> -->
+                    <% /*String fruits[]= request.getParameterValues("id");
+                    for(int i=0;i<fruits.length;i++)
+                    	System.out.println("fruits : "+i+" is "+fruits[i]);
+                    session.setAttribute("myObjectKey", fruits);*/
+                    %>
+                    <td align="left" class="tdbgwhite"><input name="submitButton" type="Submit" class="but"
+														id="submitButton" value="Submit" onClick="" >
+														<input name="WhatFor" type="hidden" id="WhatFor" value="shortlistIntern"></td>
+                    <td align="left" class="tdbgwhite"></td>
+                    <td align="left" class="tdbgwhite"></td>
+                    <td align="left" class="tdbgwhite">
+
+                    </td>
+                </tr>
+            </table></td>
+        <td background="images/4.gif"></td>
+    </tr>
+
 <tr>
 	<td><img src="images/7.gif" alt="" width="16" height="17"></td>
 	<td background="images/6.gif"></td>
