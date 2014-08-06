@@ -1,7 +1,5 @@
 <%-- 
-    
-    
-    Author     :Ravi & Priyanka
+    Author     : Ravi Prakash Giri
 --%>
 
 <%@page import="java.sql.ResultSet"%>
