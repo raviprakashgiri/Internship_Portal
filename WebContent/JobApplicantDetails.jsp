@@ -1,7 +1,7 @@
 <%-- 
     
     
-    Author     : Ravi & Priyanka
+    Author     : Ravi Prakash Giri
 --%>
 
 <%@page import="com.iit.dbUtilities.DataService"%>
