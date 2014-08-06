@@ -1,7 +1,7 @@
 <%-- 
     Document   : EmployersList
     
-    Author     : Priyanka & Ravi
+    Author     : Ravi Prakash Giri
 --%>
 
 <%@page import="java.sql.ResultSet"%>
