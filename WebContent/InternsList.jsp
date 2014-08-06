@@ -1,3 +1,9 @@
+<%-- 
+    
+    
+    Author     : Ravi Prakash giri
+--%>
+
 <%@page import="java.sql.ResultSet"%>
 <%@page import="com.iit.dbUtilities.DataService"%>
 <html>
@@ -83,7 +89,7 @@ $("select").change(function(){
 	ResultSet rs = DataService.getResultSet(query);
 	Object[][] data = DataService.getDataFromResultSet(rs);
 %>
-	<form name="form1" method="post" action="">
+	<form name="form1" action="" method="POST">
 		<!-- <table width="100%" border="0" cellspacing="0" cellpadding="4">
 			<tr>
 				<td width="41%"><script src="scripts/header.js"></script></td>
@@ -110,7 +116,7 @@ $("select").change(function(){
 <tr>
 	<td width="1%"><img src="images/1.gif" alt="" width="16"
 		height="57"></td>
-	<td width="98%" background="images/2.gif" class="bigtitlered"> Intern applicants List		
+	<td width="98%" background="images/2.gif" class="bigtitlered"> Interns List		
 	</td>
 	<td width="1%"><img src="images/3.gif" alt="" width="15"
 		height="57"></td>
@@ -122,6 +128,7 @@ $("select").change(function(){
 			cellpadding="5" cellspacing="2"
 			style="border: 0px solid; border-color: #CCCCCC;">
 			<tr align="left" bgcolor="#FFFFFF" class="table_head">
+				
 				<td width="13%" height="25" align="left"
 					style="border-bottom: 1px solid; border-color: #FF6600;">Name</td>
 				
@@ -146,6 +153,7 @@ $("select").change(function(){
 					
 					for (int count = 0, cnt = 1; count < ReportLength; count++, cnt++) {%>
 			<tr>
+				
 				<td align="left" class="tdbgwhite"><%=data[count][1] %></td>
 					
 				<td align="left" class="tdbgwhite"><%=data[count][2] %></td>
@@ -174,6 +182,9 @@ $("select").change(function(){
 		<%} %>
 	<td background="images/4.gif"></td>
 </tr>
+
+ 
+
 <tr>
 	<td><img src="images/7.gif" alt="" width="16" height="17"></td>
 	<td background="images/6.gif"></td>
