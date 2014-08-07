@@ -1,10 +1,9 @@
 /*
- * Author     : Priyanka & Ravi
+ * Author     :  Ravi Prakash Giri
  */
 
 package com.iit.controller;
 import java.sql.ResultSet;
-
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
@@ -71,6 +70,7 @@ public class ActionServlet extends HttpServlet {
 		DataService ds = new DataService();
 		System.out.println(request.getParameter("WhatFor"));
 		MultipartFormDataRequest mrequest;
+		String appliedthrough="Direct";
 		String whatFor = request.getParameter("WhatFor");
 		if(whatFor==null){
 		
@@ -94,6 +94,7 @@ public class ActionServlet extends HttpServlet {
 			float cgpa = Float.parseFloat(mrequest.getParameter("percentage"));
 			
 			int duration = Integer.parseInt(mrequest.getParameter("duration"));
+			System.out.println("duration:"+duration);
 			String stream = mrequest.getParameter("stream");
 			int yearOfStudy = Integer.parseInt(mrequest.getParameter("yearOfStudy"));
 			String availabilityForF2F = mrequest.getParameter("availabilityForF2F");
@@ -103,7 +104,7 @@ public class ActionServlet extends HttpServlet {
 			interests = ds.getQueryString(interests);
 			String skills = mrequest.getParameter("skills");
 			String persuing = mrequest.getParameter("persuing");
-			 String appliedthrough=mrequest.getParameter("appliedthrough");
+			// String appliedthrough=mrequest.getParameter("appliedthrough");
 			 String reasonForUnavailability = mrequest.getParameter("reasonForUnavailability");
 			 reasonForUnavailability = ds.getQueryString(reasonForUnavailability);
 			InternBean internBean = new InternBean();
@@ -129,7 +130,7 @@ public class ActionServlet extends HttpServlet {
 			internBean.setYearOfStudy(yearOfStudy);
 			internBean.setAdditionalInfo(additionalInfo);
 			internBean.setAvailabilityForF2F(availabilityForF2F);
-			internBean.setAppliedthrough(appliedthrough);
+		//	internBean.setAppliedthrough(appliedthrough);
 			//fileUploadDir = fileUploadDir.substring(65);					
 			//fileUploadDir = "http://qassist.cse.iitb.ac.in/"+fileUploadDir;
 			System.out.println("fileUploadDir  "+fileUploadDir);
@@ -139,13 +140,14 @@ public class ActionServlet extends HttpServlet {
 			internBean.setResume(FILEPATH);
 			internBean.inernRegistration(internBean);
 			String host = "10.105.1.1";
+			//String host = "imap.cse.iitb.ac.in";
 			String mail_smtp_port = "25";
 			String mail_user = "reviewsystem@cse.iitb.ac.in";
 			String mail_password = "review123";
 
 			String result = "";
 			// Recipient's email ID needs to be mentioned.
-			//String to = "recruitment.iitb@gmail.com,vishwajeet@cse.iitb.ac.in";
+			//String to = "recruitment.iitb@gmail.com,raviprakashgiri@gmail.com";
 			String to = "recruitment.iitb@gmail.com";
 			// Sender's email ID needs to be mentioned.
 			String from = mail_user;
@@ -217,13 +219,21 @@ public class ActionServlet extends HttpServlet {
 					+"</tr>"
 					+"<tr>"+
 					"<td style='font-weight:bold;padding:7px 9px;width:20%'>"+
+					"Resume:"+
+					"</td>"+
+					"<td style='padding:7px 9px 7px 0;width:80%'>"+
+					"http://qassist.cse.iitb.ac.in/"+""+FILEPATH+""
+					+"</td>"
+					+"</tr>"
+					+"<tr style='background-color:#e1e1e1'>"+
+					"<td style='font-weight:bold;padding:7px 9px;width:20%'>"+
 					"Stream:"+
 					"</td>"+
 					"<td style='padding:7px 9px 7px 0;width:80%'>"+
 					""+stream+""
 					+"</td>"
 					+"</tr>"
-					+"<tr style='background-color:#e1e1e1'>"+
+					+"<tr>"+
 					"<td style='font-weight:bold;padding:7px 9px;width:20%'>"+
 					"Current Year Of Study: "+
 					"</td>"+
@@ -240,7 +250,7 @@ public class ActionServlet extends HttpServlet {
 					+"<br>"
 					+"</td>"
 					+"</tr>"
-					+"<tr style='background-color:#e1e1e1'>"+
+					+"<tr>"+
 					"<td style='font-weight:bold;padding:7px 9px;width:20%'>"+
 					"Availability for F2F Interview @IIT Bombay"+
 					"</td>"+
@@ -248,19 +258,27 @@ public class ActionServlet extends HttpServlet {
 					""+availabilityForF2F+""
 					+"</td>"
 					+"</tr>"
-					+"<tr>"+
+					+"<tr style='background-color:#e1e1e1'>"+
 					"<td style='font-weight:bold;padding:7px 9px;width:20%'>"+
 					"Feasible Joining Date:"+
 					"</td>"+
 					"<td style='padding:7px 9px 7px 0;width:80%'>"+
 					""+joiningDate+""
 					+"</td>"
-					+"<tr style='background-color:#e1e1e1'>"+
+					+"<tr>"+
 					"<td style='font-weight:bold;padding:7px 9px;width:20%'>"+
 					"Additional Information "+
 					"</td>"+
 					"<td style='padding:7px 9px 7px 0;width:80%'>"+
 					""+additionalInfo+""
+					+"</td>"
+					+"</tr>"
+					+"<tr style='background-color:#e1e1e1'>"+
+					"<td style='font-weight:bold;padding:7px 9px;width:20%'>"+
+					"Internship Duration"+
+					"</td>"+
+					"<td style='padding:7px 9px 7px 0;width:80%'>"+
+					""+duration+""
 					+"</td>"
 					+"</tr>"
 					+"</table>"
@@ -384,7 +402,7 @@ public class ActionServlet extends HttpServlet {
 			experiencedBean.setResume(FILEPATH);
 			experiencedBean.registerEmployee(experiencedBean);
 			
-			String host = "imap.cse.iitb.ac.in";
+			String host = "10.105.1.1";
 			String mail_smtp_port = "25";
 			String mail_user = "reviewsystem@cse.iitb.ac.in";
 			String mail_password = "review123";
@@ -399,7 +417,7 @@ public class ActionServlet extends HttpServlet {
 			//String subject = request.getParameter("subject");
 			
 			
-			String subject = ""+firstName+" "+lastName+""+"  Applied For Job- Company - "+currentCompany+""+" CGPA - "+cgpa+""+" Years Of Experience - "+totalExperience+"";
+			String subject = ""+firstName+" "+lastName+""+"  Applied For Job- Company - "+currentCompany+""+" CGPA - "+cgpa+""+" Experience in Months - "+totalExperience+"";
 			//String description = request.getParameter("description");
 			skills = skills.replaceAll(",", "<br>");
 			String description = "<html>" +
@@ -447,13 +465,21 @@ public class ActionServlet extends HttpServlet {
 					+"</tr>"
 					+"<tr>"+
 					"<td style='font-weight:bold;padding:7px 9px;width:20%'>"+
+					"Resume:"+
+					"</td>"+
+					"<td style='padding:7px 9px 7px 0;width:80%'>"+
+					"http://qassist.cse.iitb.ac.in/"+""+FILEPATH+""
+					+"</td>"
+					+"</tr>"					
+					+"<tr style='background-color:#e1e1e1'>"+
+					"<td style='font-weight:bold;padding:7px 9px;width:20%'>"+
 					"Highest Educational Qualification :"+
 					"</td>"+
 					"<td style='padding:7px 9px 7px 0;width:80%'>"+
 					""+education+""
 					+"</td>"
 					+"</tr>"
-					+"<tr style='background-color:#e1e1e1'>"+
+					+"<tr>"+
 					"<td style='font-weight:bold;padding:7px 9px;width:20%'>"+
 					"Earliest (From-To) Availability For The Interview:"+
 					"</td>"+
@@ -461,7 +487,7 @@ public class ActionServlet extends HttpServlet {
 					""+earliestAvailability+""
 					+"</td>"
 					+"</tr>"
-					+"<tr>"+
+					+"<tr style='background-color:#e1e1e1'>"+
 					"<td style='font-weight:bold;padding:7px 9px;width:20%'>"+
 					"Strong Reasons For Why You Want To Work At IIT-Bombay 	"+
 					"</td>"+
@@ -469,7 +495,7 @@ public class ActionServlet extends HttpServlet {
 					""+reasonForWorkHere+""
 					+"</td>"
 					+"</tr>"+
-					"<tr style='background-color:#e1e1e1'>"+
+					"<tr>"+
 					"<td style='font-weight:bold;padding:7px 9px;width:20%'>"+
 					"Skills:"+
 					"</td>"+
@@ -478,7 +504,7 @@ public class ActionServlet extends HttpServlet {
 					+"<br>"
 					+"</td>"
 					+"</tr>"
-					+"<tr>"+
+					+"<tr style='background-color:#e1e1e1'>"+
 					"<td style='font-weight:bold;padding:7px 9px;width:20%'>"+
 					"Availability for F2F Interview @IIT Bombay"+
 					"</td>"+
@@ -486,7 +512,7 @@ public class ActionServlet extends HttpServlet {
 					""+availabilityToF2F+""
 					+"</td>"
 					+"</tr>"
-					+"<tr style='background-color:#e1e1e1'>"+
+					+"<tr>"+
 					"<td style='font-weight:bold;padding:7px 9px;width:20%'>"+
 					"If Selected Can Start Working Immediately? "+
 					"</td>"+
@@ -494,7 +520,7 @@ public class ActionServlet extends HttpServlet {
 					""+immediateJoinee+""
 					+"</td>"
 					+"</tr>"
-					+"<tr>"+
+					+"<tr style='background-color:#e1e1e1'>"+
 					"<td style='font-weight:bold;padding:7px 9px;width:20%'>"+
 					"Additional Information:"+
 					"</td>"+
@@ -567,8 +593,8 @@ public class ActionServlet extends HttpServlet {
 			String lastName = mrequest.getParameter("lastName");
 			String joiningDate = mrequest.getParameter("joiningDate");
 			Date joiningDateSql = Commons.stringToSqlDate(joiningDate);
-			//String leavingDate = mrequest.getParameter("leavingDate");
-			//Date leavingDateSql = Commons.stringToSqlDate(leavingDate);
+			String leavingDate = mrequest.getParameter("leavingDate");
+			Date leavingDateSql = Commons.stringToSqlDate(leavingDate);
 			String contactNumber = mrequest.getParameter("contactNumber");
 			String emailId = mrequest.getParameter("emailId");
 			 String collegeName = mrequest.getParameter("collegeName");
@@ -577,7 +603,9 @@ public class ActionServlet extends HttpServlet {
 			 //int duration = Integer.parseInt(mrequest.getParameter("duration"));
 			 String stream = mrequest.getParameter("stream");
 			 int yearOfStudy = Integer.parseInt(mrequest.getParameter("yearOfStudy"));
-			 String appliedthrough=mrequest.getParameter("appliedthrough");
+			 int duration = Integer.parseInt(mrequest.getParameter("duration"));
+			 System.out.println("Duration to be seen:"+duration);
+			// String appliedthrough=mrequest.getParameter("appliedthrough");
 			 String availabilityForF2F = mrequest.getParameter("availabilityForF2F");
 			 String additionalInfo = mrequest.getParameter("additionalInformation");
 			 additionalInfo = ds.getQueryString(additionalInfo);
@@ -591,7 +619,7 @@ public class ActionServlet extends HttpServlet {
 			raBean.setFirstName(firstName);
 			raBean.setLastName(lastName);
 			raBean.setJoiningDate(joiningDateSql);
-			//internBean.setLeavingDate(leavingDateSql);
+			raBean.setLeavingDate(leavingDateSql);
 			raBean.setContactNumber(contactNumber);
 			raBean.setEmailId(emailId);
 			raBean.setCollegeName(collegeName);
@@ -611,6 +639,8 @@ public class ActionServlet extends HttpServlet {
 			Random randomGenerator = new Random();
 			int randomNumber = randomGenerator.nextInt(100);
 			raBean.setYearOfStudy(yearOfStudy);
+			raBean.setDuration(duration);
+			System.out.println("Duration: action"+duration);
 			raBean.setAdditionalInfo(additionalInfo);
 			raBean.setAvailabilityForF2F(availabilityForF2F);
 			raBean.setAppliedthrough(appliedthrough);
@@ -623,20 +653,20 @@ public class ActionServlet extends HttpServlet {
 			raBean.setResume(FILEPATH);
 			raBean.RARegistration(raBean);
 			
-			String host = "imap.cse.iitb.ac.in";
+			String host = "10.105.1.1";
 			String mail_smtp_port = "25";
 			String mail_user = "reviewsystem@cse.iitb.ac.in";
 			String mail_password = "review123";
 
 			String result = "";
 			// Recipient's email ID needs to be mentioned.
-			//String to = "recruitment.iitb@gmail.com,vishwajeet@cse.iitb.ac.in,priya.ravi2910@gmail.com";
+			//String to = "recruitment.iitb@gmail.com,vishwajeet@cse.iitb.ac.in";
 			String to = "recruitment.iitb@gmail.com";
 			// Sender's email ID needs to be mentioned.
 			String from = mail_user;
 
 			//String subject = request.getParameter("subject");
-			String subject = ""+firstName+" "+lastName+""+" Applied For RA- College - "+collegeName+""+" CGPA -"+cgpa+"";
+			String subject = ""+firstName+" "+lastName+""+" Applied For RA- College - "+collegeName+""+" CGPA -"+cgpa+""+" Duration -"+duration+"";
 			//String description = request.getParameter("description");
 			skills = skills.replaceAll(",", "<br>");
 			
@@ -693,6 +723,22 @@ public class ActionServlet extends HttpServlet {
 								+"</tr>"
 								+"<tr style='background-color:#e1e1e1'>"+
 								"<td style='font-weight:bold;padding:7px 9px;width:20%'>"+
+								"Duration:"+
+								"</td>"+
+								"<td style='padding:7px 9px 7px 0;width:80%'>"+
+								""+duration+""
+								+"</td>"
+								+"</tr>"
+								+"<tr>"+
+								"<td style='font-weight:bold;padding:7px 9px;width:20%'>"+
+								"Resume:"+
+								"</td>"+
+								"<td style='padding:7px 9px 7px 0;width:80%'>"+
+								"http://qassist.cse.iitb.ac.in/"+""+FILEPATH+""
+								+"</td>"
+								+"</tr>"
+								+"<tr style='background-color:#e1e1e1'>"+
+								"<td style='font-weight:bold;padding:7px 9px;width:20%'>"+
 								"Pursuing:"+
 								"</td>"+
 								"<td style='padding:7px 9px 7px 0;width:80%'>"+
@@ -740,6 +786,14 @@ public class ActionServlet extends HttpServlet {
 								+"</td>"
 								+"</tr>"
 								+"<tr style='background-color:#e1e1e1'>"+
+								"<td style='font-weight:bold;padding:7px 9px;width:20%'>"+
+								"Feasible Leaving Date:"+
+								"</td>"+
+								"<td style='padding:7px 9px 7px 0;width:80%'>"+
+								""+leavingDate+""
+								+"</td>"
+								+"</tr>"
+								+"<tr>"+
 								"<td style='font-weight:bold;padding:7px 9px;width:20%'>"+
 								"Additional Information:"+
 								"</td>"+
@@ -1043,6 +1097,7 @@ public class ActionServlet extends HttpServlet {
 						// TODO Auto-generated catch block
 						e.printStackTrace();
 					}
+				
 				}else if(action.equals("shortListEmployee")){
 					
 					String query = "Update job_applicant set status='ShortListed' where job_applicant_id='"+candidate_id+"'";
@@ -1074,7 +1129,6 @@ public class ActionServlet extends HttpServlet {
 					}
 				} else if(action.equals("deleteRA")){
 					String query = "delete from ra_applicant where ra_id='"+candidate_id+"'";
-					System.out.println(query);
 					try {
 						DataService.runQuery(query);
 					} catch (SQLException e) {
