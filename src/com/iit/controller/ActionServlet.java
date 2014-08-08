@@ -83,7 +83,9 @@ public class ActionServlet extends HttpServlet {
 		
 		if(whatFor.equals("registerIntern")){
 			String firstName = mrequest.getParameter("firstName");
+			String FirstName = firstName.replaceAll("\\s","");
 			String lastName = mrequest.getParameter("lastName");
+			String LastName = firstName.replaceAll("\\s","");
 			String joiningDate = mrequest.getParameter("joiningDate");
 			Date joiningDateSql = Commons.stringToSqlDate(joiningDate);
 			String leavingDate = mrequest.getParameter("leavingDate");
@@ -134,7 +136,7 @@ public class ActionServlet extends HttpServlet {
 			//fileUploadDir = fileUploadDir.substring(65);					
 			//fileUploadDir = "http://qassist.cse.iitb.ac.in/"+fileUploadDir;
 			System.out.println("fileUploadDir  "+fileUploadDir);
-			String FILEPATH= up.UploadingFile(mrequest, fileUploadDir, "resume",firstName+"_"+lastName+"_"+randomNumber );
+			String FILEPATH= up.UploadingFile(mrequest, fileUploadDir, "resume",FirstName+"_"+LastName+"_"+randomNumber );
 			FILEPATH = FILEPATH.substring(65);
 			System.out.println("Ravi..rpg..."+ FILEPATH);
 			internBean.setResume(FILEPATH);
@@ -342,7 +344,9 @@ public class ActionServlet extends HttpServlet {
 		if(whatFor.equals("registerForJob")){
 			System.out.println("///////////////  "+mrequest.getParameter("availabilityToF2F"));
 			String firstName = mrequest.getParameter("firstName");
+			String FirstName = firstName.replaceAll("\\s","");
 			String lastName = mrequest.getParameter("lastName");
+			String LastName = lastName.replaceAll("\\s","");
 			String contactNumber = mrequest.getParameter("contactNumber");
 			String emailId = mrequest.getParameter("emailId");
 			String currentLocation = mrequest.getParameter("currentLocation");
@@ -395,7 +399,7 @@ public class ActionServlet extends HttpServlet {
 			System.out.println("fileUploadDir  "+fileUploadDir);
 			Random randomGenerator = new Random();
 			int randomNumber = randomGenerator.nextInt(100);
-			String FILEPATH= up.UploadingFile(mrequest, fileUploadDir, "resume",firstName+"_"+lastName+"_"+randomNumber );
+			String FILEPATH= up.UploadingFile(mrequest, fileUploadDir, "resume",FirstName+"_"+LastName+"_"+randomNumber );
 			//String FILEPATH= up.UploadingFile(mrequest, fileUploadDir, "resume",firstName+"_"+lastName+"_"+randomNumber );
 			FILEPATH = FILEPATH.substring(65);
 			System.out.println("Ravi..rpg..."+ FILEPATH);
@@ -489,14 +493,6 @@ public class ActionServlet extends HttpServlet {
 					+"</tr>"
 					+"<tr style='background-color:#e1e1e1'>"+
 					"<td style='font-weight:bold;padding:7px 9px;width:20%'>"+
-					"Strong Reasons For Why You Want To Work At IIT-Bombay 	"+
-					"</td>"+
-					"<td style='padding:7px 9px 7px 0;width:80%'>"+
-					""+reasonForWorkHere+""
-					+"</td>"
-					+"</tr>"+
-					"<tr>"+
-					"<td style='font-weight:bold;padding:7px 9px;width:20%'>"+
 					"Skills:"+
 					"</td>"+
 					"<td style='padding:7px 9px 7px 0;width:80%'>"+
@@ -504,7 +500,71 @@ public class ActionServlet extends HttpServlet {
 					+"<br>"
 					+"</td>"
 					+"</tr>"
+					+"<tr>"+
+					"<td style='font-weight:bold;padding:7px 9px;width:20%'>"+
+					"Current Location : "+
+					"</td>"+
+					"<td style='padding:7px 9px 7px 0;width:80%'>"+
+					""+currentLocation+""
+					+"</td>"
+					+"</tr>"
 					+"<tr style='background-color:#e1e1e1'>"+
+					"<td style='font-weight:bold;padding:7px 9px;width:20%'>"+
+					"Current Salary 	"+
+					"</td>"+
+					"<td style='padding:7px 9px 7px 0;width:80%'>"+
+					""+currentCtc+""
+					+"</td>"
+					+"</tr>"
+					+"<tr>"+
+					"<td style='font-weight:bold;padding:7px 9px;width:20%'>"+
+					"Notice Period 	"+
+					"</td>"+
+					"<td style='padding:7px 9px 7px 0;width:80%'>"+
+					""+noticePeriod+""
+					+"</td>"
+					+"</tr>"
+					+"<tr style='background-color:#e1e1e1'>"+
+					"<td style='font-weight:bold;padding:7px 9px;width:20%'>"+
+					"Total Experience in months 	"+
+					"</td>"+
+					"<td style='padding:7px 9px 7px 0;width:80%'>"+
+					""+totalExperience+""
+					+"</td>"
+					+"</tr>"
+					+"<tr>"+
+					"<td style='font-weight:bold;padding:7px 9px;width:20%'>"+
+					"Experience in Java 	"+
+					"</td>"+
+					"<td style='padding:7px 9px 7px 0;width:80%'>"+
+					""+experienceInJava+""
+					+"</td>"
+					+"</tr>"
+					+"<tr style='background-color:#e1e1e1'>"+
+					"<td style='font-weight:bold;padding:7px 9px;width:20%'>"+
+					"Year of Passing	"+
+					"</td>"+
+					"<td style='padding:7px 9px 7px 0;width:80%'>"+
+					""+yearOfPassing+""
+					+"</td>"
+					+"</tr>"
+					+"<tr>"+
+					"<td style='font-weight:bold;padding:7px 9px;width:20%'>"+
+					"Role Applied For : 	"+
+					"</td>"+
+					"<td style='padding:7px 9px 7px 0;width:80%'>"+
+					""+roleAppliedFor+""
+					+"</td>"
+					+"</tr>"
+					+"<tr style='background-color:#e1e1e1'>"+
+					"<td style='font-weight:bold;padding:7px 9px;width:20%'>"+
+					"Strong Reasons For Why You Want To Work At IIT-Bombay 	"+
+					"</td>"+
+					"<td style='padding:7px 9px 7px 0;width:80%'>"+
+					""+reasonForWorkHere+""
+					+"</td>"
+					+"</tr>"
+					+"<tr>"+
 					"<td style='font-weight:bold;padding:7px 9px;width:20%'>"+
 					"Availability for F2F Interview @IIT Bombay"+
 					"</td>"+
@@ -512,7 +572,7 @@ public class ActionServlet extends HttpServlet {
 					""+availabilityToF2F+""
 					+"</td>"
 					+"</tr>"
-					+"<tr>"+
+					+"<tr style='background-color:#e1e1e1'>"+
 					"<td style='font-weight:bold;padding:7px 9px;width:20%'>"+
 					"If Selected Can Start Working Immediately? "+
 					"</td>"+
@@ -520,7 +580,7 @@ public class ActionServlet extends HttpServlet {
 					""+immediateJoinee+""
 					+"</td>"
 					+"</tr>"
-					+"<tr style='background-color:#e1e1e1'>"+
+					+"<tr>"+
 					"<td style='font-weight:bold;padding:7px 9px;width:20%'>"+
 					"Additional Information:"+
 					"</td>"+
@@ -590,7 +650,9 @@ public class ActionServlet extends HttpServlet {
 			
 			
 			String firstName = mrequest.getParameter("firstName");
+			String FirstName = firstName.replaceAll("\\s","");
 			String lastName = mrequest.getParameter("lastName");
+			String LastName = lastName.replaceAll("\\s","");
 			String joiningDate = mrequest.getParameter("joiningDate");
 			Date joiningDateSql = Commons.stringToSqlDate(joiningDate);
 			String leavingDate = mrequest.getParameter("leavingDate");
@@ -645,7 +707,7 @@ public class ActionServlet extends HttpServlet {
 			raBean.setAvailabilityForF2F(availabilityForF2F);
 			raBean.setAppliedthrough(appliedthrough);
 			//System.out.println("testingg=="+fileUploadDir + firstName + lastName);
-			String FILEPATH= up.UploadingFile(mrequest, fileUploadDir, "resume",firstName+"_"+lastName+"_"+randomNumber );
+			String FILEPATH= up.UploadingFile(mrequest, fileUploadDir, "resume",FirstName+"_"+LastName+"_"+randomNumber );
 			//String FILEPATH= up.UploadingFile(mrequest, fileUploadDir, "resume",firstName+"_"+lastName+"_"+randomNumber );
 			FILEPATH = FILEPATH.substring(65);
 			System.out.println("Ravi..rpg..."+ FILEPATH);
@@ -661,7 +723,7 @@ public class ActionServlet extends HttpServlet {
 			String result = "";
 			// Recipient's email ID needs to be mentioned.
 			//String to = "recruitment.iitb@gmail.com,vishwajeet@cse.iitb.ac.in";
-			String to = "recruitment.iitb@gmail.com";
+			String to = "raviprakashgiri@gmail.com";
 			// Sender's email ID needs to be mentioned.
 			String from = mail_user;
 
