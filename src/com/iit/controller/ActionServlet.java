@@ -85,7 +85,7 @@ public class ActionServlet extends HttpServlet {
 			String firstName = mrequest.getParameter("firstName");
 			String FirstName = firstName.replaceAll("\\s","");
 			String lastName = mrequest.getParameter("lastName");
-			String LastName = firstName.replaceAll("\\s","");
+			String LastName = lastName.replaceAll("\\s","");
 			String joiningDate = mrequest.getParameter("joiningDate");
 			Date joiningDateSql = Commons.stringToSqlDate(joiningDate);
 			String leavingDate = mrequest.getParameter("leavingDate");
@@ -723,7 +723,7 @@ public class ActionServlet extends HttpServlet {
 			String result = "";
 			// Recipient's email ID needs to be mentioned.
 			//String to = "recruitment.iitb@gmail.com,vishwajeet@cse.iitb.ac.in";
-			String to = "raviprakashgiri@gmail.com";
+			String to = "recruitment.iitb@gmail.com";
 			// Sender's email ID needs to be mentioned.
 			String from = mail_user;
 
@@ -1150,6 +1150,17 @@ public class ActionServlet extends HttpServlet {
 					}
 					
 				}
+				else if(action.equals("rejectIntern")){
+					String query = "Update intern set status='Rejected' where intern_id='"+candidate_id+"'";
+					System.out.println(query);
+					try {
+						DataService.runQuery(query);
+					} catch (SQLException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
+					
+				}
 				else if(action.equals("deleteIntern")){
 					String query = "delete from intern where intern_id='"+candidate_id+"'";
 					System.out.println(query);
@@ -1171,7 +1182,19 @@ public class ActionServlet extends HttpServlet {
 						e.printStackTrace();
 					}
 					
-				}else if(action.equals("deleteEmployee")){
+				}
+				else if(action.equals("rejectEmployee")){
+					String query = "Update intern set status='Rejected' where intern_id='"+candidate_id+"'";
+					System.out.println(query);
+					try {
+						DataService.runQuery(query);
+					} catch (SQLException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
+					
+				}
+				else if(action.equals("deleteEmployee")){
 					String query = "delete from job_applicant where job_applicant_id='"+candidate_id+"'";
 					System.out.println(query);
 					try {
@@ -1189,7 +1212,19 @@ public class ActionServlet extends HttpServlet {
 						// TODO Auto-generated catch block
 						e.printStackTrace();
 					}
-				} else if(action.equals("deleteRA")){
+				} 
+				else if(action.equals("rejectRA")){
+					String query = "Update intern set status='Rejected' where intern_id='"+candidate_id+"'";
+					System.out.println(query);
+					try {
+						DataService.runQuery(query);
+					} catch (SQLException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
+					
+				}
+				else if(action.equals("deleteRA")){
 					String query = "delete from ra_applicant where ra_id='"+candidate_id+"'";
 					try {
 						DataService.runQuery(query);
