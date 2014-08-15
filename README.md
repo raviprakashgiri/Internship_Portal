@@ -19,3 +19,8 @@ The directory is divided into three parts:
 
 It has been used for recruiting people for IITB
 	
+	#Features:
+	1) Admin Panel
+	2) Dynamic Questions Additions
+	3) Emailing Details Facility
+	4) Customizable forms
