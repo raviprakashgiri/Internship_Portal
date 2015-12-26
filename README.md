@@ -1,7 +1,7 @@
 Recruitment Portal
 =================
 
-This project is based on Advance Java ans uses java server pages ( JSP ) and Servlet technology.
+This project is based on Advance Java using java server pages ( JSP ) and Servlet technology.
 It is an internship portal that can be used by any institution to select students as an intern or job applicants.
 
 Directory Structure:
